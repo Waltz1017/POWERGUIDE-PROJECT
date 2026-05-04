@@ -33,6 +33,17 @@ function togglePassword() {
     }
 }
 
+function validateForm() {
+  const contact = document.getElementById("contact").value;
+
+  if (contact.length !== 11) {
+    alert("Contact number must be exactly 11 digits.");
+    return;
+  }
+
+  alert("Form valid! Ready to submit.");
+}
+
 function fadeOut(e) {
     e.preventDefault();
 

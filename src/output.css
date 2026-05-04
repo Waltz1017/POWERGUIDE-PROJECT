@@ -2100,3 +2100,15 @@ input:focus {
     border: 1px solid #FFBB02 !important;
     box-shadow: 0 0 0 1px #FFBB02;
 }
+
+.int-btn {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.int-btn:hover {
+    transform: scale(1.05);
+}
+
+.int-btn:active {
+    transform: scale(0.95);
+}
