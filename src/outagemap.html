@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll:smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerGuide Outage Map</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#03041A] text-white">
+
+    <!-- Mobile Menu Toggle -->
+    <button id="menuToggle" class="fixed top-4 left-4 z-50 lg:hidden bg-[#31324C] p-2 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- SIDEBAR NAV -->
+        <nav id="sidebar" class="flex flex-col fixed lg:sticky top-0 h-screen w-[280px] lg:w-[340px]
+            text-[#B5B5B5] text-center pt-10 px-5
+            border-r-2 border-white/10 bg-[#03041A] z-40
+            -translate-x-full lg:translate-x-0 transition-transform duration-300">
+
+            <!-- Logo -->
+            <div class="flex pb-10 items-center gap-3">
+                <img class="w-10 lg:w-16" src="/img/logo.png" alt="PowerGuide Logo">
+                <div class="flex flex-col justify-center">
+                    <span class="text-white font-extrabold text-base lg:text-2xl">POWER<span
+                            class="text-[#FFBB02]">GUIDE</span></span>
+                    <span class="text-white font-medium text-[10px] lg:text-xs">SECURITY AND RELIABILITY</span>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <div class="flex flex-col gap-2">
+                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
+                    <img class="flex rounded-md h-7 w-7" src="/img/dashboard.png" alt="">
+                    <span class="text-sm font-semibold">Dashboard</span>
+                </a>
+                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
+                    <img class="flex rounded-md h-7 w-7" src="/img/outagemap.png" alt="">
+                    <span class="text-sm font-semibold">Outage Map</span>
+                </a>
+                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
+                    <img class="flex rounded-md h-7 w-7" src="/img/devices-Picsart-BackgroundRemover.png" alt="">
+                    <span class="text-sm font-semibold">Devices</span>
+                </a>
+                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
+                    <img class="flex rounded-md h-7 w-7" src="/img/findhubs-Picsart-BackgroundRemover.jpg" alt="">
+                    <span class="text-sm font-semibold">Find Hubs</span>
+                </a>
+
+                <span class="text-xs tracking-widest text-white/30 text-left px-4 pt-4">COMMUNITY</span>
+
+                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
+                    <img class="h-7 w-7" src="/img/reports.png" alt="">
+                    <span class="text-sm font-semibold">Reports</span>
+                </a>
+                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
+                    <img class="h-7 w-7" src="/img/settings.png" alt="">
+                    <span class="text-sm font-semibold">Settings</span>
+                </a>
+            </div>
+
+            <!-- Pro Tip
+            <div class="flex flex-col text-left mt-auto mb-5 p-3 rounded-lg bg-[#31324C]/50">
+                <span class="text-[#FEBB02] text-sm font-bold mb-1">PRO TIP</span>
+                <span class="text-white/50 text-xs font-normal">Lower screen brightness to 40% to save 15min of runtime.</span>
+            </div> -->
+        </nav>
+
+        <main class="flex-1 overflow-y-auto">
+            <header class="bg-[#31324C] flex flex-wrap items-center justify-between gap-4 px-4 py-4 lg:px-10 lg:h-28">
+
+                <!-- Left: Title + Stats -->
+                <div class="flex flex-wrap items-center gap-4 w-full lg:w-auto">
+
+                    <!-- Title -->
+                    <div class="flex flex-col justify-center px-4 lg:px-10 border-r-2 border-[#2A2A3E]">
+                        <span class="font-bold text-lg lg:text-2xl">Interactive Outage Map</span>
+                        <span class="text-xs lg:text-sm text-[#B5B5B5]">REAL-TIME GRID INTELLIGENCE</span>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="flex items-center gap-6 lg:gap-20">
+                        <span class="text-sm">(1.2k Online Nodes)</span>
+                        <span class="text-sm">(12 Active Outages)</span>
+                    </div>
+
+                </div>
+
+                <!-- Right: Search + Button -->
+                <div class="flex items-center gap-3 w-full lg:w-auto">
+                    <input
+                        class="w-full lg:w-80 h-10 p-2 rounded-xl bg-[#31324C] border-2 border-[#696969] text-white placeholder-[#B5B5B5] focus:outline-none focus:border-[#696969]"
+                        type="text" placeholder="Search City..." />
+                    <a class="flex-shrink-0 flex w-28 font-bold text-black justify-center p-2 bg-[#FFBB02] rounded-2xl hover:bg-[#e0a800] transition-colors"
+                        href="">Layers</a>
+                </div>
+
+            </header>
+
+            <!-- Content -->
+            <section class="flex justify-between h-auto py-10 px-5">
+                <!-- Map -->
+                <div class="flex mx-5 justify-center items-center border-2 border-amber-300">
+                    <span class="text-center">MAP
+                        <br><br>
+                        <span class="text-[#03041A]">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eligendi esse neque, nulla
+                            earum repellendus. Reiciendis modi odio ratione commodi libero facilis eveniet vel fugit.
+                            Eius repellat ducimus sunt reiciendis.
+                        </span>
+                    </span>
+                </div>
+
+                <!-- City Stats -->
+                <div>
+                    <div class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full md:w-[424px] h-[600px] md:h-[738px]">
+
+                        <!-- Header -->
+                        <div class="flex flex-row border-b-2 border-[#2A2A3E] p-2 justify-between items-center">
+                            <span class="font-bold text-xl md:text-2xl">City Statistics</span>
+                            <span
+                                class="text-xs text-[#B5B5B5] font-medium rounded-md bg-[#31324C] border-2 border-[#696969] p-1">
+                                SORT BY ALERT LEVEL
+                            </span>
+                        </div>
+
+                        <!-- Scrollable Cards -->
+                        <div
+                            class="overflow-y-auto h-[520px] md:h-[550px] flex flex-col gap-3 pt-2 [&::-webkit-scrollbar]:hidden border-2 border-amber-200">
+
+                            <!-- CRITICAL -->
+                            <div class="flex flex-col p-2">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        <span
+                                            class="flex bg-[#FF3C2F1A]/[10%] w-16 text-xs items-center rounded-md text-[#FF2E1F] p-2 font-bold justify-center">
+                                            CRITICAL
+                                        </span>
+                                    </span>
+                                    <span class="font-medium text-xs text-[#B5B5B5]">(cause)</span>
+                                </div>
+                                <div class="flex flex-row justify-between mt-3 gap-2">
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">AFFECTED</span>
+                                        <span class="text-xl md:text-2xl text-white font-bold">() users</span>
+                                    </div>
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">ETR</span>
+                                        <span class="text-xl md:text-2xl text-[#FFBB02] font-bold">d/h/m</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- WARNING -->
+                            <div class="flex flex-col p-2">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        <span
+                                            class="flex bg-[#FFBB021A]/[10%] w-16 text-xs items-center rounded-md text-[#FFBB02] p-2 font-bold justify-center">
+                                            WARNING
+                                        </span>
+                                    </span>
+                                    <span class="font-medium text-xs text-[#B5B5B5]">(cause)</span>
+                                </div>
+                                <div class="flex flex-row justify-between mt-3 gap-2">
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">AFFECTED</span>
+                                        <span class="text-xl md:text-2xl text-white font-bold">() users</span>
+                                    </div>
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">STATUS</span>
+                                        <span class="text-xl md:text-2xl text-[#B5B5B5] font-bold">(Monitoring)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STABLE 1 -->
+                            <div class="flex flex-col p-2">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        <span
+                                            class="flex bg-[#22FF221A]/[10%] w-16 text-xs items-center rounded-md text-[#34FB34] p-2 font-bold justify-center">
+                                            STABLE
+                                        </span>
+                                    </span>
+                                    <span class="font-medium text-xs text-[#B5B5B5]">(cause)</span>
+                                </div>
+                                <div class="flex flex-row justify-between mt-3 gap-2">
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">UPTIME</span>
+                                        <span class="text-xl md:text-2xl text-white font-bold">() %</span>
+                                    </div>
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">GRID LOAD</span>
+                                        <span class="text-xl md:text-2xl text-[#B5B5B5] font-bold">(Medium)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STABLE 2 -->
+                            <div class="flex flex-col p-2">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        <span
+                                            class="flex bg-[#22FF221A]/[10%] w-16 text-xs items-center rounded-md text-[#34FB34] p-2 font-bold justify-center">
+                                            STABLE
+                                        </span>
+                                    </span>
+                                    <span class="font-medium text-xs text-[#B5B5B5]">(cause)</span>
+                                </div>
+                                <div class="flex flex-row justify-between mt-3 gap-2">
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">UPTIME</span>
+                                        <span class="text-xl md:text-2xl text-white font-bold">() %</span>
+                                    </div>
+                                    <div
+                                        class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
+                                        <span class="text-xs text-[#B5B5B5] font-semibold">GRID LOAD</span>
+                                        <span class="text-xl md:text-2xl text-[#B5B5B5] font-bold">(Medium)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- DOWNLOAD REPORT AND ADD REPORT -->
+                        <div class="border-2 flex flex-col">
+                            <div class="flex justify-end m-2">
+                                <button class="flex justify-center items-center bg-[#FFBB02] rounded-2xl h-16 w-16"><img class="w-10" src="/img/reports.svg" alt=""></button>
+                            </div>
+                            <br>
+                            <div
+                                class="flex flex-col bg-[#31324C] border-[#696969] border-2 rounded-xl hover:bg-[#a9a8a8] p-3">
+                                <button class="font-bold text-md flex items-center justify-center">
+                                    <span>
+                                        <img src="/img/download.svg" alt="">
+                                    </span>
+                                    Download Local Status Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+
+
+
+        <script>
+            const toggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+
+            toggle.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
+            });
+
+            overlay.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            });
+        </script>
+</body>
+
+</html>
