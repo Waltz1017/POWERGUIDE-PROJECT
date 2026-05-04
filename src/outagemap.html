@@ -48,21 +48,18 @@
 
             <!-- Nav Links -->
             <div class="flex flex-col gap-2">
-                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                <a href="dashboard.html" class="flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
                     <img class="flex rounded-md h-7 w-7" src="/img/dashboard.png" alt="">
                     <span class="text-sm font-semibold">Dashboard</span>
                 </a>
-                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
+                
+                <a href="outagemap.html" class="flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
                     <img class="flex rounded-md h-7 w-7" src="/img/outagemap.png" alt="">
                     <span class="text-sm font-semibold">Outage Map</span>
                 </a>
-                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
-                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
-                    <img class="flex rounded-md h-7 w-7" src="/img/devices-Picsart-BackgroundRemover.png" alt="">
-                    <span class="text-sm font-semibold">Devices</span>
-                </a>
+
                 <a href="" class="flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
                     <img class="flex rounded-md h-7 w-7" src="/img/findhubs-Picsart-BackgroundRemover.jpg" alt="">
@@ -137,7 +134,7 @@
 
                 <!-- City Stats -->
                 <div>
-                    <div class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full md:w-[424px] h-[600px] md:h-[738px]">
+                    <div class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full md:w-[424px] h-[600px] md:h-[738px] relative">
 
                         <!-- Header -->
                         <div class="flex flex-row border-b-2 border-[#2A2A3E] p-2 justify-between items-center">
@@ -150,7 +147,7 @@
 
                         <!-- Scrollable Cards -->
                         <div
-                            class="overflow-y-auto h-[520px] md:h-[550px] flex flex-col gap-3 pt-2 [&::-webkit-scrollbar]:hidden border-2 border-amber-200">
+                            class="overflow-y-auto h-[520px] md:h-[550px] flex flex-col gap-3 pt-2 [&::-webkit-scrollbar]:hidden">
 
                             <!-- CRITICAL -->
                             <div class="flex flex-col p-2">
@@ -258,9 +255,9 @@
                         </div>
                         <br>
                         <!-- DOWNLOAD REPORT AND ADD REPORT -->
-                        <div class="border-2 flex flex-col">
+                        <div class="absolute bottom-4 left-5 w-96 flex flex-col z-1000">
                             <div class="flex justify-end m-2">
-                                <button class="flex justify-center items-center bg-[#FFBB02] rounded-2xl h-16 w-16"><img class="w-10" src="/img/reports.svg" alt=""></button>
+                                <button onclick="document.getElementById('popup').style.display='flex'" class="flex justify-center items-center bg-[#FFBB02] rounded-2xl h-16 w-16"><img class="w-10" src="/img/reports.svg" alt=""></button>
                             </div>
                             <br>
                             <div
@@ -277,6 +274,76 @@
 
                 </div>
             </section>
+
+            <!-- Popup Overlay -->
+    <div id="popup" style="display:none;" class="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
+
+        <!-- Popup Box (your form wrapper) -->
+        <div class="relative">
+
+            <!-- ✕ Close Button -->
+            <button onclick="document.getElementById('popup').style.display='none'"
+                class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-0">
+                &times;
+            </button>
+
+            <!-- Your Form (unchanged) -->
+            <form class="flex flex-col w-[700px] h-[700px] bg-[#1A1B33] text-white border-2 rounded-3xl p-10" action="">
+                <span class="flex flex-col text-3xl font-bold ">
+                    Report an Outage
+                    <span class="text-sm font-semibold text-[#B5B5B5]">
+                        Your data helps neighbors stay prepared.
+                    </span>
+                </span>
+                <br>
+                <div class="flex flex-col">
+                    <span class="flex flex-col text-sm text-[#B5B5B5] font-semibold">
+                        OUTAGE TYPE
+                    </span>
+                    <br>
+                    <div class="flex flex-row gap-5">
+                        <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
+                        <label for="blackout"
+                            class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-72 h-32 border-2 border-[#B5B5B5]
+                            peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:text-black peer-checked/blackout:border-[#FAB005]">
+                            <img src="/img/volt.svg" alt="kidlattt">
+                            Total Blackout
+                        </label>
+
+                        <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
+                        <label for="fluctuation"
+                            class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-72 h-32 border-2 border-[#B5B5B5]
+                            peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:text-black peer-checked/fluctuation:border-[#FAB005]">
+                            <img src="/img/fluctuation.svg" alt="">
+                            Fluctuation
+                        </label>
+                    </div>
+                    <br>
+                    <div class="">
+                        <span class="text-[#B5B5B5] font-semibold text-sm">
+                            LOCATION DETAIL
+                        </span>
+                        <br>
+                        <input class="w-full px-2 h-14 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
+                            type="text" placeholder="e.g, Street Name, Landmark">
+                        <br><br>
+                        <span>OBSERVATIONS</span>
+                        <br>
+                        <textarea class="w-full h-32 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
+                            placeholder="Describe what happened..."></textarea>
+                        <br><br>
+                        <div class="flex">
+                            <button type="submit"
+                                class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
+                                Submit Community Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
         </main>
 
 
