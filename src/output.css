@@ -2072,6 +2072,8 @@
   }
 }
 
+body { font-family: 'Montserrat', sans-serif; }
+
 header {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2080,4 +2082,21 @@ header.scrolled {
     background-color: rgba(0, 0, 0, 0.85) !important;
     backdrop-filter: blur(16px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+body.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #FFBB02 !important;
+    box-shadow: 0 0 0 1px #FFBB02;
 }
