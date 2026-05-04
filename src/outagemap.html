@@ -79,19 +79,13 @@
                     <span class="text-sm font-semibold">Settings</span>
                 </a>
             </div>
-
-            <!-- Pro Tip
-            <div class="flex flex-col text-left mt-auto mb-5 p-3 rounded-lg bg-[#31324C]/50">
-                <span class="text-[#FEBB02] text-sm font-bold mb-1">PRO TIP</span>
-                <span class="text-white/50 text-xs font-normal">Lower screen brightness to 40% to save 15min of runtime.</span>
-            </div> -->
         </nav>
 
         <main class="flex-1 overflow-y-auto">
             <header class="bg-[#31324C] flex flex-wrap items-center justify-between gap-4 px-4 py-4 lg:px-10 lg:h-28">
 
                 <!-- Left: Title + Stats -->
-                <div class="flex flex-wrap items-center gap-4 w-full lg:w-auto">
+                <div class="flex flex-wrap items-center gap-4 w-full lg:w-auto pl-10 lg:pl-0">
 
                     <!-- Title -->
                     <div class="flex flex-col justify-center px-4 lg:px-10 border-r-2 border-[#2A2A3E]">
@@ -119,26 +113,50 @@
             </header>
 
             <!-- Content -->
-            <section class="flex justify-between h-auto py-10 px-5">
-                <!-- Map -->
-                <div class="w-full h-[600px] md:h-[738px] mx-5 rounded-2xl">
-                    <img src="/img/map.png" alt="" class="w-full h-full object-cover rounded-2xl">
-                </div>
-                <!-- <div class="flex mx-5 justify-center items-center border-2 border-amber-300">
-                    <span class="text-center">MAP
-                        <img src="/img/map.png" alt="">
-                    </span>
-                </div> -->
+            <section class="flex flex-col lg:flex-row justify-between h-auto py-6 px-3 lg:py-10 lg:px-5 gap-5">
 
+                <!-- Map -->
+                <div class="w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[738px] md:mx-5">
+                    <div class="relative w-full h-full">
+                        <img src="/img/map.png" alt="" class="w-full h-full object-cover rounded-2xl">
+                        <div
+                            class="absolute bottom-4 right-4 w-32 sm:w-36 md:w-44 border-2 bg-[#31324C] rounded-2xl z-20 p-2 md:p-3">
+                            <div class="flex flex-col gap-1 md:gap-2">
+                                <span class="font-bold text-xs md:text-sm">MAP LEGEND</span>
+                                <span class="font-medium text-xs flex flex-row items-center">
+                                    <span class="relative flex h-2 w-2 md:h-3 md:w-3 mr-2 shrink-0">
+                                        <span
+                                            class="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-[#FE0000]"></span>
+                                    </span>
+                                    Confirmed Outage
+                                </span>
+                                <span class="font-medium text-xs flex flex-row items-center">
+                                    <span class="relative flex h-2 w-2 md:h-3 md:w-3 mr-2 shrink-0">
+                                        <span
+                                            class="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-[#FFBB02]"></span>
+                                    </span>
+                                    Partial/Surge
+                                </span>
+                                <span class="font-medium text-xs flex flex-row items-center">
+                                    <span class="relative flex h-2 w-2 md:h-3 md:w-3 mr-2 shrink-0">
+                                        <span
+                                            class="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-[#49B149]"></span>
+                                    </span>
+                                    Stable/Grid
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- City Stats -->
-                <div>
+                <div class="w-full lg:w-auto lg:flex-shrink-0">
                     <div
-                        class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full md:w-[424px] h-[600px] md:h-[738px] relative">
+                        class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full lg:w-[424px] h-[500px] sm:h-[580px] lg:h-[738px] relative">
 
                         <!-- Header -->
                         <div class="flex flex-row border-b-2 border-[#2A2A3E] p-2 justify-between items-center">
-                            <span class="font-bold text-xl md:text-2xl">City Statistics</span>
+                            <span class="font-bold text-lg md:text-2xl">City Statistics</span>
                             <span
                                 class="text-xs text-[#B5B5B5] font-medium rounded-md bg-[#31324C] border-2 border-[#696969] p-1">
                                 SORT BY ALERT LEVEL
@@ -147,13 +165,13 @@
 
                         <!-- Scrollable Cards -->
                         <div
-                            class="overflow-y-auto h-[520px] md:h-[550px] flex flex-col gap-3 pt-2 [&::-webkit-scrollbar]:hidden">
+                            class="overflow-y-auto h-[350px] sm:h-[430px] lg:h-[550px] flex flex-col gap-3 pt-2 [&::-webkit-scrollbar]:hidden">
 
                             <!-- CRITICAL -->
                             <div class="flex flex-col p-2">
                                 <div class="flex flex-col">
                                     <span
-                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        class="font-bold flex justify-between text-white text-lg md:text-2xl">(City/Place)
                                         <span
                                             class="flex bg-[#FF3C2F1A]/[10%] w-16 text-xs items-center rounded-md text-[#FF2E1F] p-2 font-bold justify-center">
                                             CRITICAL
@@ -165,12 +183,12 @@
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">AFFECTED</span>
-                                        <span class="text-xl md:text-2xl text-white font-bold">() users</span>
+                                        <span class="text-lg md:text-2xl text-white font-bold">() users</span>
                                     </div>
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">ETR</span>
-                                        <span class="text-xl md:text-2xl text-[#FFBB02] font-bold">d/h/m</span>
+                                        <span class="text-lg md:text-2xl text-[#FFBB02] font-bold">d/h/m</span>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +197,7 @@
                             <div class="flex flex-col p-2">
                                 <div class="flex flex-col">
                                     <span
-                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        class="font-bold flex justify-between text-white text-lg md:text-2xl">(City/Place)
                                         <span
                                             class="flex bg-[#FFBB021A]/[10%] w-16 text-xs items-center rounded-md text-[#FFBB02] p-2 font-bold justify-center">
                                             WARNING
@@ -191,12 +209,12 @@
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">AFFECTED</span>
-                                        <span class="text-xl md:text-2xl text-white font-bold">() users</span>
+                                        <span class="text-lg md:text-2xl text-white font-bold">() users</span>
                                     </div>
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">STATUS</span>
-                                        <span class="text-xl md:text-2xl text-[#B5B5B5] font-bold">(Monitoring)</span>
+                                        <span class="text-lg md:text-2xl text-[#B5B5B5] font-bold">(Monitoring)</span>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +223,7 @@
                             <div class="flex flex-col p-2">
                                 <div class="flex flex-col">
                                     <span
-                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        class="font-bold flex justify-between text-white text-lg md:text-2xl">(City/Place)
                                         <span
                                             class="flex bg-[#22FF221A]/[10%] w-16 text-xs items-center rounded-md text-[#34FB34] p-2 font-bold justify-center">
                                             STABLE
@@ -217,12 +235,12 @@
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">UPTIME</span>
-                                        <span class="text-xl md:text-2xl text-white font-bold">() %</span>
+                                        <span class="text-lg md:text-2xl text-white font-bold">() %</span>
                                     </div>
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">GRID LOAD</span>
-                                        <span class="text-xl md:text-2xl text-[#B5B5B5] font-bold">(Medium)</span>
+                                        <span class="text-lg md:text-2xl text-[#B5B5B5] font-bold">(Medium)</span>
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +249,7 @@
                             <div class="flex flex-col p-2">
                                 <div class="flex flex-col">
                                     <span
-                                        class="font-bold flex justify-between text-white text-xl md:text-2xl">(City/Place)
+                                        class="font-bold flex justify-between text-white text-lg md:text-2xl">(City/Place)
                                         <span
                                             class="flex bg-[#22FF221A]/[10%] w-16 text-xs items-center rounded-md text-[#34FB34] p-2 font-bold justify-center">
                                             STABLE
@@ -243,57 +261,55 @@
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">UPTIME</span>
-                                        <span class="text-xl md:text-2xl text-white font-bold">() %</span>
+                                        <span class="text-lg md:text-2xl text-white font-bold">() %</span>
                                     </div>
                                     <div
                                         class="border-2 border-[#696969] rounded-md bg-[#31324C] flex flex-col flex-1 p-2">
                                         <span class="text-xs text-[#B5B5B5] font-semibold">GRID LOAD</span>
-                                        <span class="text-xl md:text-2xl text-[#B5B5B5] font-bold">(Medium)</span>
+                                        <span class="text-lg md:text-2xl text-[#B5B5B5] font-bold">(Medium)</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <br>
+
                         <!-- DOWNLOAD REPORT AND ADD REPORT -->
-                        <div class="absolute bottom-4 left-5 w-96 flex flex-col z-1000">
-                            <div class="flex justify-end m-2">
+                        <div class="absolute bottom-4 left-3 right-3 flex flex-col">
+                            <div class="flex justify-end mb-2">
                                 <button onclick="document.getElementById('popup').style.display='flex'"
-                                    class="flex justify-center items-center bg-[#FFBB02] rounded-2xl h-16 w-16"><img
-                                        class="w-10" src="/img/reports.svg" alt=""></button>
+                                    class="flex justify-center items-center bg-[#FFBB02] rounded-2xl h-12 w-12 md:h-16 md:w-16">
+                                    <img class="w-7 md:w-10" src="/img/reports.svg" alt="">
+                                </button>
                             </div>
-                            <br>
                             <div
                                 class="flex flex-col bg-[#31324C] border-[#696969] border-2 rounded-xl hover:bg-[#a9a8a8] p-3">
-                                <button class="font-bold text-md flex items-center justify-center">
-                                    <span>
-                                        <img src="/img/download.svg" alt="">
-                                    </span>
+                                <button class="font-bold text-sm md:text-md flex items-center justify-center gap-2">
+                                    <img src="/img/download.svg" alt="">
                                     Download Local Status Report
                                 </button>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
             <!-- Popup Overlay -->
             <div id="popup" style="display:none;"
-                class="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
+                class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
 
-                <!-- Popup Box (your form wrapper) -->
-                <div class="relative">
+                <!-- Popup Box -->
+                <div class="relative w-full max-w-[700px]">
 
-                    <!-- ✕ Close Button -->
+                    <!-- Close Button -->
                     <button onclick="document.getElementById('popup').style.display='none'"
-                        class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-0">
+                        class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10">
                         &times;
                     </button>
 
-                    <!-- Your Form (unchanged) -->
-                    <form class="flex flex-col w-[700px] h-[700px] bg-[#1A1B33] text-white border-2 rounded-3xl p-10"
+                    <!-- Form -->
+                    <form
+                        class="flex flex-col w-full max-h-[90vh] overflow-y-auto bg-[#1A1B33] text-white border-2 rounded-3xl p-6 md:p-10"
                         action="">
-                        <span class="flex flex-col text-3xl font-bold ">
+                        <span class="flex flex-col text-2xl md:text-3xl font-bold">
                             Report an Outage
                             <span class="text-sm font-semibold text-[#B5B5B5]">
                                 Your data helps neighbors stay prepared.
@@ -301,74 +317,62 @@
                         </span>
                         <br>
                         <div class="flex flex-col">
-                            <span class="flex flex-col text-sm text-[#B5B5B5] font-semibold">
-                                OUTAGE TYPE
-                            </span>
+                            <span class="text-sm text-[#B5B5B5] font-semibold">OUTAGE TYPE</span>
                             <br>
-                            <div class="flex flex-row gap-5">
+                            <div class="flex flex-col sm:flex-row gap-4">
                                 <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
-                                <label for="blackout"
-                                    class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-72 h-32 border-2 border-[#B5B5B5]
-                            peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:text-black peer-checked/blackout:border-[#FAB005]">
-                                    <img src="/img/volt.svg" alt="kidlattt">
+                                <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                                    peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:border-[#FAB005]">
+                                    <img src="/img/volt.svg" alt="">
                                     Total Blackout
                                 </label>
 
                                 <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
                                 <label for="fluctuation"
-                                    class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-72 h-32 border-2 border-[#B5B5B5]
-                            peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:text-black peer-checked/fluctuation:border-[#FAB005]">
+                                    class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                                    peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:border-[#FAB005]">
                                     <img src="/img/fluctuation.svg" alt="">
                                     Fluctuation
                                 </label>
                             </div>
                             <br>
-                            <div class="">
-                                <span class="text-[#B5B5B5] font-semibold text-sm">
-                                    LOCATION DETAIL
-                                </span>
-                                <br>
-                                <input class="w-full px-2 h-14 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
-                                    type="text" placeholder="e.g, Street Name, Landmark">
-                                <br><br>
-                                <span>OBSERVATIONS</span>
-                                <br>
-                                <textarea
-                                    class="w-full h-32 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
-                                    placeholder="Describe what happened..."></textarea>
-                                <br><br>
-                                <div class="flex">
-                                    <button type="submit"
-                                        class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
-                                        Submit Community Report
-                                    </button>
-                                </div>
-                            </div>
+                            <span class="text-[#B5B5B5] font-semibold text-sm">LOCATION DETAIL</span>
+                            <br>
+                            <input class="w-full px-2 h-14 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
+                                type="text" placeholder="e.g, Street Name, Landmark">
+                            <br><br>
+                            <span>OBSERVATIONS</span>
+                            <br>
+                            <textarea
+                                class="w-full h-28 md:h-32 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
+                                placeholder="Describe what happened..."></textarea>
+                            <br><br>
+                            <button type="submit"
+                                class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
+                                Submit Community Report
+                            </button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </main>
+    </div>
 
+    <script>
+        const toggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
 
+        toggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
 
-
-        <script>
-            const toggle = document.getElementById('menuToggle');
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-
-            toggle.addEventListener('click', () => {
-                sidebar.classList.toggle('-translate-x-full');
-                overlay.classList.toggle('hidden');
-            });
-
-            overlay.addEventListener('click', () => {
-                sidebar.classList.add('-translate-x-full');
-                overlay.classList.add('hidden');
-            });
-        </script>
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+    </script>
 </body>
 
 </html>

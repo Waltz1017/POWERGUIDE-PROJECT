@@ -275,20 +275,23 @@
     </div>
 
     <!-- REPORT OUTAGE -->
-    <div id="popup" style="display:none;" class="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
+    <!-- Popup Overlay -->
+    <div id="popup" style="display:none;" class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
 
-        <!-- Popup Box (your form wrapper) -->
-        <div class="relative">
+        <!-- Popup Box -->
+        <div class="relative w-full max-w-[700px]">
 
-            <!-- ✕ Close Button -->
+            <!-- Close Button -->
             <button onclick="document.getElementById('popup').style.display='none'"
-                class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-0">
+                class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10">
                 &times;
             </button>
 
-            <!-- Your Form (unchanged) -->
-            <form class="flex flex-col w-[700px] h-[700px] bg-[#1A1B33] text-white border-2 rounded-3xl p-10" action="">
-                <span class="flex flex-col text-3xl font-bold ">
+            <!-- Form -->
+            <form
+                class="flex flex-col w-full max-h-[90vh] overflow-y-auto bg-[#1A1B33] text-white border-2 rounded-3xl p-6 md:p-10"
+                action="">
+                <span class="flex flex-col text-2xl md:text-3xl font-bold">
                     Report an Outage
                     <span class="text-sm font-semibold text-[#B5B5B5]">
                         Your data helps neighbors stay prepared.
@@ -296,175 +299,138 @@
                 </span>
                 <br>
                 <div class="flex flex-col">
-                    <span class="flex flex-col text-sm text-[#B5B5B5] font-semibold">
-                        OUTAGE TYPE
-                    </span>
+                    <span class="text-sm text-[#B5B5B5] font-semibold">OUTAGE TYPE</span>
                     <br>
-                    <div class="flex flex-row gap-5">
+                    <div class="flex flex-col sm:flex-row gap-4">
                         <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
-                        <label for="blackout"
-                            class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-72 h-32 border-2 border-[#B5B5B5]
-                            peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:text-black peer-checked/blackout:border-[#FAB005]">
+                        <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                                    peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:border-[#FAB005]">
                             <img src="/img/volt.svg" alt="">
                             Total Blackout
                         </label>
 
                         <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
                         <label for="fluctuation"
-                            class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-72 h-32 border-2 border-[#B5B5B5]
-                            peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:text-black peer-checked/fluctuation:border-[#FAB005]">
+                            class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                                    peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:border-[#FAB005]">
                             <img src="/img/fluctuation.svg" alt="">
                             Fluctuation
                         </label>
                     </div>
                     <br>
-                    <div class="">
-                        <span class="text-[#B5B5B5] font-semibold text-sm">
-                            LOCATION DETAIL
-                        </span>
-                        <br>
-                        <input class="w-full px-2 h-14 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
-                            type="text" placeholder="e.g, Street Name, Landmark">
-                        <br><br>
-                        <span>OBSERVATIONS</span>
-                        <br>
-                        <textarea class="w-full h-32 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
-                            placeholder="Describe what happened..."></textarea>
-                        <br><br>
-                        <div class="flex">
-                            <button type="submit"
-                                class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
-                                Submit Community Report
-                            </button>
-                        </div>
-                    </div>
+                    <span class="text-[#B5B5B5] font-semibold text-sm">LOCATION DETAIL</span>
+                    <br>
+                    <input class="w-full px-2 h-14 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]" type="text"
+                        placeholder="e.g, Street Name, Landmark">
+                    <br><br>
+                    <span>OBSERVATIONS</span>
+                    <br>
+                    <textarea class="w-full h-28 md:h-32 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
+                        placeholder="Describe what happened..."></textarea>
+                    <br><br>
+                    <button type="submit"
+                        class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
+                        Submit Community Report
+                    </button>
                 </div>
             </form>
-
         </div>
     </div>
 
 
     <!-- PROFILE SETTINGS -->
-    <form class="flex">
-        <!-- Popup Overlay -->
-        <div id="profile" style="display:none;" class="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
+    <div id="profile" style="display:none;"
+        class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-3 sm:p-6">
 
-            <!-- Popup Box (your form wrapper) -->
-            <div class="relative">
+        <div class="relative bg-[#0C0D2A] border border-amber-200 rounded-[20px] shadow-[0_0_20px_#FFCA41]
+        w-full max-w-[700px] overflow-hidden">
 
-                <!-- ✕ Close Button -->
-                <button onclick="document.getElementById('profile').style.display='none'"
-                    class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-0">
-                    &times;
-                </button>
+            <!-- ✕ Close Button -->
+            <button onclick="document.getElementById('profile').style.display='none'"
+                class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10 leading-none px-2">
+                &times;
+            </button>
 
-                <div class="flex flex-col border rounded-[20px] sm:rounded-[25px]
-                shadow-[0_0_20px_#FFCA41] border-amber-200
-                z-10 m-4 sm:m-6 lg:m-10 p-5
-                w-[95vw] sm:w-[90vw] lg:w-[973px]
-                bg-[#0C0D2A]
-                pb-4">
+            <!-- Header -->
+            <div class="pt-5 px-5 pb-0">
+                <h2 class="text-white text-[clamp(22px,5vw,40px)] font-extrabold leading-tight">
+                    PROFILE SETTINGS
+                </h2>
+                <p class="text-[#B5B5B5] text-[clamp(12px,2.5vw,16px)] font-medium mt-1 mb-4">
+                    Manage your identity and security protocols.
+                </p>
+            </div>
 
-                    <!-- Header -->
-                    <div class="pt-4 sm:pt-5 pl-4 sm:pl-5">
-                        <span class="text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold">
-                            PROFILE SETTINGS
-                        </span><br>
-                        <span class="text-[#B5B5B5] text-sm sm:text-base lg:text-lg font-medium">
-                            Manage your identity and security protocols.
-                        </span>
+            <!-- Inner Panel -->
+            <div class="px-4 pb-4">
+                <div class="bg-[#394760]/[60%] rounded-[20px] py-1">
+
+                    <!-- Basic Information Header -->
+                    <div class="flex items-center gap-2 px-5 py-4">
+                        <img class="w-7 h-7 flex-shrink-0" src="/img/profile.png" alt="">
+                        <span class="text-white text-[13px] font-bold tracking-wide">BASIC INFORMATION</span>
                     </div>
 
-                    <!-- Inner Panel -->
-                    <div class="flex flex-col items-center justify-center pt-2 px-2 sm:px-3">
-                        <div class="flex flex-col bg-[#394760]/[60%]
-                        rounded-[20px] sm:rounded-[27px]
-                        w-full
-                        py-2">
-
-                            <!-- Basic Information Header -->
-                            <div class="flex flex-row gap-2 px-4 sm:px-5 py-4 sm:py-5 items-center">
-                                <img class="w-[28px] h-[28px] sm:w-[34px] sm:h-[34px]" src="/img/profile.png" alt="">
-                                <span class="text-white text-sm sm:text-base font-bold">
-                                    BASIC INFORMATION
-                                </span>
+                    <!-- Basic Info Fields -->
+                    <div class="px-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-white text-[13px] font-semibold">Full Name</label>
+                                <input
+                                    class="h-10 border border-white/70 rounded-lg text-white font-medium px-3 bg-transparent text-sm w-full"
+                                    type="text" placeholder="John C. Doe">
                             </div>
-
-                            <!-- ProfileSettings -->
-                            <div class="px-4 sm:px-5">
-                                <div class="flex flex-col sm:flex-row gap-4 sm:justify-evenly">
-                                    <div class="flex flex-col w-full sm:w-[48%]">
-                                        <span class="text-white py-1 text-sm font-semibold">Full Name</span>
-                                        <input class="border h-10 border-white rounded-lg text-white 
-                                    font-medium px-3 bg-transparent text-sm" type="text" placeholder="John C. Doe">
-                                    </div>
-                                    <div class="flex flex-col w-full sm:w-[48%]">
-                                        <span class="text-white py-1 text-sm font-semibold">Contact Number</span>
-                                        <input class="border h-10 border-white rounded-lg text-white
-                                    font-medium px-3 bg-transparent text-sm" type="text"
-                                            placeholder="+63 912 123 4567">
-                                    </div>
-                                </div>
-
-                                <br>
-
-                                <div class="flex flex-col items-center border-b-2 border-[#AFAFAF] py-4 sm:py-5">
-                                    <button class="cursor-pointer w-full h-[42px] sm:h-[46px] text-white 
-                                rounded-lg bg-[#364057] text-sm sm:text-base font-bold
-                                hover:bg-[#FFBB02] hover:text-black transition-colors">
-                                        Update Basic Profile
-                                    </button>
-                                </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-white text-[13px] font-semibold">Contact Number</label>
+                                <input
+                                    class="h-10 border border-white/70 rounded-lg text-white font-medium px-3 bg-transparent text-sm w-full"
+                                    type="text" placeholder="+63 912 123 4567">
                             </div>
+                        </div>
 
-                            <!-- Sec and Pass -->
-                            <div class="flex flex-col">
-                                <div class="flex flex-row gap-2 px-4 sm:px-5 py-4 sm:py-5 items-center">
-                                    <img class="w-[28px] h-[28px] sm:w-[34px] sm:h-[34px]" src="/img/lock.png" alt="">
-                                    <span class="text-white text-sm sm:text-base font-bold">
-                                        SECURITY AND PASSWORD
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Password -->
-                            <div class="px-4 sm:px-5">
-                                <div class="flex flex-col sm:flex-row gap-4 sm:justify-evenly">
-                                    <div class="flex flex-col w-full sm:w-[48%]">
-                                        <span class="text-white py-1 font-semibold text-sm">New Password</span>
-                                        <input class="border h-10 border-white rounded-lg
-                                    text-white font-medium px-3 bg-transparent text-sm" type="password"
-                                            placeholder="********">
-                                    </div>
-                                    <div class="flex flex-col w-full sm:w-[48%]">
-                                        <span class="text-white py-1 text-sm font-semibold">Confirm Password</span>
-                                        <input class="border h-10 border-white rounded-lg
-                                    text-white font-medium px-3 bg-transparent text-sm" type="password"
-                                            placeholder="********">
-                                    </div>
-                                </div>
-
-                                <br>
-
-                                <div class="flex flex-col items-center py-4 sm:py-5">
-                                    <button class="cursor-pointer w-full h-[42px] sm:h-[46px] rounded-lg
-                                bg-[#FFBB02] text-sm sm:text-base font-bold
-                                hover:bg-[#364057] hover:text-white transition-colors">
-                                        Change Password
-                                    </button>
-                                </div>
-                            </div>
-
+                        <div class="py-4 border-b border-[#AFAFAF]">
+                            <button class="w-full h-[42px] text-white rounded-lg bg-[#364057] text-sm font-bold
+                            hover:bg-[#FFBB02] hover:text-black transition-colors cursor-pointer">
+                                Update Basic Profile
+                            </button>
                         </div>
                     </div>
+
+                    <!-- Security Header -->
+                    <div class="flex items-center gap-2 px-5 py-4">
+                        <img class="w-7 h-7 flex-shrink-0" src="/img/lock.png" alt="">
+                        <span class="text-white text-[13px] font-bold tracking-wide">SECURITY AND PASSWORD</span>
+                    </div>
+
+                    <!-- Password Fields -->
+                    <div class="px-5 pb-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-white text-[13px] font-semibold">New Password</label>
+                                <input
+                                    class="h-10 border border-white/70 rounded-lg text-white font-medium px-3 bg-transparent text-sm w-full"
+                                    type="password" placeholder="••••••••">
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-white text-[13px] font-semibold">Confirm Password</label>
+                                <input
+                                    class="h-10 border border-white/70 rounded-lg text-white font-medium px-3 bg-transparent text-sm w-full"
+                                    type="password" placeholder="••••••••">
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button class="w-full h-[42px] rounded-lg bg-[#FFBB02] text-sm font-bold
+                            hover:bg-[#364057] hover:text-white transition-colors cursor-pointer">
+                                Change Password
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
-
-
             </div>
         </div>
-
-    </form>
+    </div>
 
 
     <script>
