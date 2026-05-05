@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerGuide Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap"
-        rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -27,63 +27,101 @@
 
     <!-- Overlay for mobile -->
     <div id="overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
-
-    <div class="flex h-screen overflow-hidden">
+        <div class="flex h-screen overflow-hidden">
 
         <!-- SIDEBAR NAV -->
         <nav id="sidebar" class="flex flex-col fixed lg:sticky top-0 h-screen w-[280px] lg:w-[340px]
-            text-[#B5B5B5] text-center pt-10 px-5
-            border-r-2 border-white/10 bg-[#03041A] z-40
-            -translate-x-full lg:translate-x-0 transition-transform duration-300">
+                text-[#B5B5B5] text-center pt-8 px-5
+                border-r-2 border-white/10 bg-[#03041A] z-40
+                -translate-x-full lg:translate-x-0 transition-transform duration-300">
 
             <!-- Logo -->
-            <div class="flex pb-10 items-center gap-3">
-                <img class="w-10 lg:w-16" src="/img/logo.png" alt="PowerGuide Logo">
-                <div class="flex flex-col justify-center">
-                    <span class="text-white font-extrabold text-base lg:text-2xl">POWER<span
-                            class="text-[#FFBB02]">GUIDE</span></span>
-                    <span class="text-white font-medium text-[10px] lg:text-xs ">SECURITY AND RELIABILITY</span>
+            <div class="flex items-center gap-2 ml-4 mb-6">
+                <img class="w-10 md:w-12" src="../img/logo.png" alt="">
+                <div class="flex flex-col justify-center items-start">
+                    <span class="text-white font-bold text-lg md:text-xl leading-tight">
+                        POWER<span class="text-[#FFBB02]">GUIDE</span>
+                    </span>
+                    <span class="text-white font-medium text-sm md:text-xs tracking-widest opacity-70 leading-none">
+                        SECURITY AND RELIABILITY
+                    </span>
                 </div>
             </div>
 
             <!-- Nav Links -->
             <div class="flex flex-col gap-2">
-                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
-                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
-                    <img class="flex rounded-md h-7 w-7" src="/img/dashboard.png" alt="">
+                <span class="text-xs font-bold tracking-widest text-white text-left px-4 pt-4 mb-2">MAIN MENU</span>
+                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
+                    hover:scale-[1.03] active:scale-[0.98] transform
+                    transition-all duration-200 ease-in-out transform">
+                    <img class="h-7 w-7 transition-all duration-200
+                        group-hover:opacity-0 absolute"
+                        src="/img/dashboard.png" alt="">
+                    <img class="h-7 w-7 transition-all duration-200
+                        opacity-0 group-hover:opacity-100"
+                        src="/img/dashboard-black.png" alt="">
                     <span class="text-sm font-semibold">Dashboard</span>
                 </a>
 
-                <a href="outagemap.html" class="flex flex-row items-center gap-3 px-4 h-11
-                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
-                    <img class="flex rounded-md h-7 w-7" src="/img/outagemap.png" alt="">
+                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
+                    hover:scale-[1.03] active:scale-[0.98] transform
+                    transition-all duration-200 ease-in-out transform">
+                    <img class="h-7 w-7 transition-all duration-200
+                        group-hover:opacity-0 absolute"
+                        src="/img/outagemap.svg" alt="">
+                    <img class="h-7 w-7 transition-all duration-200
+                        opacity-0 group-hover:opacity-100"
+                        src="/img/outagemap-black.svg" alt="">
                     <span class="text-sm font-semibold">Outage Map</span>
                 </a>
 
-                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
-                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
-                    <img class="flex rounded-md h-7 w-7" src="/img/findhubs-Picsart-BackgroundRemover.jpg" alt="">
+                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
+                    hover:scale-[1.03] active:scale-[0.98] transform
+                    transition-all duration-200 ease-in-out transform">
+                    <img class="h-7 w-7 transition-all duration-200
+                        group-hover:opacity-0 absolute"
+                        src="/img/findhubs.svg" alt="">
+                    <img class="h-7 w-7 transition-all duration-200
+                        opacity-0 group-hover:opacity-100"
+                        src="/img/findhubs-black.svg" alt="">
                     <span class="text-sm font-semibold">Find Hubs</span>
                 </a>
 
-                <span class="text-xs tracking-widest text-white/30 text-left px-4 pt-4">COMMUNITY</span>
+                <span class="text-xs font-bold tracking-widest text-white text-left px-4 pt-4 mb-2 mt-2">COMMUNITY</span>
 
-                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
-                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
-                    <img class="h-7 w-7" src="/img/reports.png" alt="">
+                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
+                    hover:scale-[1.03] active:scale-[0.98] transform
+                    transition-all duration-200 ease-in-out transform">
+                    <img class="h-7 w-7 transition-all duration-200
+                        group-hover:opacity-0 absolute"
+                        src="/img/reports.svg" alt="">
+                    <img class="h-7 w-7 transition-all duration-200
+                        opacity-0 group-hover:opacity-100"
+                        src="/img/reports-black.svg" alt="">
                     <span class="text-sm font-semibold">Reports</span>
                 </a>
-                <a href="" class="flex flex-row items-center gap-3 px-4 h-11
-                    rounded-lg hover:bg-[#FEBB02] hover:text-black transition-colors duration-200">
-                    <img class="h-7 w-7" src="/img/settings.png" alt="">
+
+                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
+                    transition-all duration-200 ease-in-out transform">
+                    <img class="h-7 w-7 transition-all duration-200
+                        group-hover:opacity-0 absolute"
+                        src="/img/settings.png" alt="">
+                    <img class="h-7 w-7 transition-all duration-200
+                        opacity-0 group-hover:opacity-100"
+                        src="/img/settings-black.png" alt="">
                     <span class="text-sm font-semibold">Settings</span>
                 </a>
             </div>
 
             <!-- Pro Tip -->
-            <div class="flex flex-col text-left mt-auto mb-5 p-3 rounded-lg bg-[#31324C]/50">
-                <span class="text-[#FEBB02] text-sm font-bold mb-1">PRO TIP</span>
-                <span class="text-white/50 text-xs font-normal">Lower screen brightness to 40% to save 15min of
+            <div class="flex flex-col text-left mt-auto mb-5 p-6 rounded-lg bg-[#31324C]/50">
+                <span class="text-[#FEBB02] text-base font-bold mb-1">PRO TIP</span>
+                <span class="text-white/50 text-sm font-normal">Lower screen brightness to 40% to save 15min of
                     runtime.</span>
             </div>
         </nav>
@@ -92,107 +130,180 @@
         <main class="flex-1 overflow-y-auto">
 
             <!-- HEADER -->
-            <header class="mx-4 lg:mx-8 mt-16 lg:mt-6 mb-6 p-4 lg:p-5 flex flex-col sm:flex-row justify-between gap-4">
+            <header class="mx-2 lg:mx-4 mt-10 lg:mt-4 mb-4 p-2 lg:p-3 flex flex-col sm:flex-row justify-between gap-4">
                 <div>
-                    <h1 class="text-3xl lg:text-5xl font-bold">Welcome Back, (User)!</h1>
-                    <span class="text-sm lg:text-lg text-[#B5B5B5]">Grid status:
-                        <span class="text-[#00BA00]">Stable in Dagupan City</span>
+                    <h1 class="text-3xl lg:text-4xl font-bold">Welcome Back, (User)!</h1>
+                    <span class="text-sm lg:text-base text-[#B5B5B5] flex items-center gap-2 mt-1">
+                        Grid status:
+                        
+                        <span class="flex items-center gap-2 text-[#00BA00]">
+                            <img src="/img/circle-check.svg" class="h-[1em] w-[1em] object-contain" alt="">
+                            Stable in Dagupan City
+                        </span>
                     </span>
                 </div>
+
                 <div class="flex items-center gap-4">
-                    <button onclick="document.getElementById('popup').style.display='flex'" class="h-11 px-5 flex justify-center items-center rounded-full bg-[#FFBB02]
-                        text-black font-bold text-sm whitespace-nowrap hover:shadow-[0_0_15px_#FFBB02] transition-all">
+                    <button onclick="document.getElementById('sync').style.display='flex'"
+                        class="group int-btn cursor-pointer px-3 py-1.5 md:px-6 md:py-2 bg-[#BCBCBC]/25
+                        text-white rounded-full hover:bg-white/50 active:bg-white/60
+                        transition-all duration-300 ease-out transform
+                        hover:scale-105 active:scale-95 text-xs md:text-sm font-bold hover:text-black">
+
+                        <span class="flex items-center gap-2">
+                            <div class="relative h-4 w-4">
+                                <!-- default plug -->
+                                <img src="/img/gray-plug.svg"
+                                    class="absolute inset-0 h-4 w-4 object-contain
+                                    transition-all duration-200
+                                    group-hover:opacity-0"
+                                    alt="">
+
+                                <!-- hover plug -->
+                                <img src="/img/black-plug.svg"
+                                    class="absolute inset-0 h-4 w-4 object-contain
+                                    opacity-0 transition-all duration-200
+                                    group-hover:opacity-100"
+                                    alt="">
+                            </div>
+                            Station Sync
+                        </span>
+                    </button>
+
+                    <button onclick="document.getElementById('popup').style.display='flex'"
+                        class="int-btn cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#FFBB02]
+                        text-black rounded-full hover:bg-[#D99A00] active:bg-[#FFC833]
+                        transition-all duration-300 ease-out transform
+                        hover:scale-105 active:scale-95 text-xs md:text-sm font-bold">
+
                         + Report Outage
                     </button>
+
                     <button onclick="document.getElementById('profile').style.display='flex'"
-                        class="h-11 px-5 flex justify-center items-centertext-black font-bold text-sm whitespace-nowrap transition-all">
-                        <img class="h-12 w-12 rounded-full object-cover" src="/img/profile.png" alt="Profile">
+                        class="flex items-center gap-2 group">
+
+                        <div class="relative h-8 w-8 mr-2 ml-4">
+                            <!-- default bell -->
+                            <img src="/img/bell-gradient.png"
+                                class="absolute inset-0 h-8 w-8 object-contain
+                                transition-all duration-200
+                                group-hover:opacity-0"
+                                alt="Notifications">
+
+                            <!-- filled bell -->
+                            <img src="/img/bell-filled.png"
+                                class="absolute inset-0 h-8 w-8 object-contain
+                                opacity-0 transition-all duration-200
+                                group-hover:opacity-100"
+                                alt="Notifications active">
+                        </div>
                     </button>
+
+                    <!-- Profile initials -->
+                    <div class="h-12 w-12 rounded-full border-2 border-[#FFBB02]
+                        flex items-center justify-center cursor-pointer
+                        hover:bg-[#FFBB02] hover:text-black
+                        text-white font-bold text-sm
+                        transition-all duration-200 transform hover:scale-105">
+                        (JD)
+                    </div>
                 </div>
             </header>
 
             <!-- STAT CARDS -->
-            <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 px-4 lg:px-8">
+            <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-8 px-4 lg:px-8">
                 <!-- Voltage -->
-                <div class="bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4">
+                <div class="card-hover glow-voltage bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
                         <div class="bg-[#1A1B3A] p-2 rounded-xl">
-                            <img src="/img/voltage.png" alt="voltage" class="h-8 w-8">
+                            <img src="/img/voltage.png" alt="voltage" class="h-8 w-8 ">
                         </div>
-                        <span class="text-[#00CFFF] text-sm font-semibold tracking-widest">VOLTAGE</span>
+                        <span class="text-[#00CFFF] text-sm font-semibold tracking-widest mt-3">VOLTAGE</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="text-white text-4xl font-bold"><span
-                                class="text-2xl text-[#B5B5B5] font-normal">V</span></span>
-                        <span class="text-[#B5B5B5] text-sm"></span>
+                        <span class="text-white text-4xl font-bold">
+                            <span class="text-xl text-white">( )</span>
+                            <span class="text-xl text-[#B5B5B5] font-normal">v</span>
+                        </span>
+                        <span class="text-[#B5B5B5] text-sm">( ) operating range</span>
                     </div>
                 </div>
+
                 <!-- Avg Uptime -->
-                <div class="bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4">
+                <div class="card-hover glow-uptime bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
                         <div class="bg-[#1A1B3A] p-2 rounded-2xl">
                             <img src="/img/avguptime.png" alt="uptime" class="h-8 w-8">
                         </div>
-                        <span class="text-[#FAB005] text-sm font-semibold tracking-widest">AVG. UPTIME</span>
+                        <span class="text-[#FAB005] text-sm font-semibold tracking-widest mt-3">AVG. UPTIME</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="text-white text-4xl font-bold"><span
-                                class="text-2xl text-[#B5B5B5] font-normal">%</span></span>
-                        <span class="text-[#29AC47] text-sm"></span>
+                        <span class="text-white text-4xl font-bold">
+                            <span class="text-xl text-white">( )</span>
+                            <span class="text-xl text-[#B5B5B5] font-normal">%</span>
+                        </span>
+                        <span class="text-[#29AC47] text-sm">( ) from last week</span>
                     </div>
                 </div>
+
                 <!-- Local Reports -->
-                <div class="bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4">
+                <div class="card-hover glow-reports bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
-                        <div class="bg-[#1A1B3A] p-2 rounded-2xl">
-                            <img src="/img/localreports-Picsart-BackgroundRemover.png" alt="reports" class="h-8 w-8">
+                        <div class="bg-[#1A1B3A] p-1 py-2 rounded-2xl">
+                            <img src="/img/localreports-Picsart-BackgroundRemover.png" alt="reports" class="h-8 w-10">
                         </div>
-                        <span class="text-[#CB3435] text-sm font-semibold tracking-widest">LOCAL REPORTS</span>
+                        <span class="text-[#CB3435] text-sm font-semibold tracking-widest mt-3">LOCAL REPORTS</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="text-white text-4xl font-bold"><span
-                                class="text-2xl text-[#B5B5B5] font-normal">ACTIVE</span></span>
-                        <span class="text-[#B5B5B5] text-sm"></span>
+                        <span class="text-white text-4xl font-bold">
+                            <span class="text-xl text-white">( )</span>
+                            <span class="text-xl text-[#B5B5B5] font-normal">Active</span>
+                        </span>
+                        <span class="text-[#B5B5B5] text-sm">( )</span>
                     </div>
                 </div>
+
                 <!-- Readiness -->
-                <div class="bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4">
+                <div class="card-hover glow-readiness bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
                         <div class="bg-[#1A1B3A] p-2 rounded-2xl">
-                            <img src="/img/battery(1).png" alt="battery" class="h-8 w-8">
+                            <img src="/img/battery.svg" alt="battery" class="h-8 w-8">
                         </div>
-                        <span class="text-[#49B149] text-sm font-semibold tracking-widest">READINESS</span>
+                        <span class="text-[#5FCB5F] text-sm font-semibold tracking-widest mt-3">READINESS</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="text-white text-4xl font-bold"></span>
-                        <span class="text-[#B5B5B5] text-sm"></span>
+                        <span class="text-white text-4xl font-bold">
+                            <span class="text-xl text-white font-bold">( )</span>
+                        </span>
+                        <span class="text-[#B5B5B5] text-sm">Backup systems verified</span>
                     </div>
                 </div>
             </section>
 
-
-
             <!-- CENTER SECTION -->
-            <section class="flex flex-col xl:flex-row gap-6 px-4 lg:px-8 mt-8 pb-10">
+            <section class="flex flex-col xl:flex-row gap-4 lg:gap-8 px-4 lg:px-8 mt-8 pb-10 -mb-2">
 
                 <!-- LEFT: Map -->
-                <div class="flex-1 flex flex-col gap-6">
+                <div class="flex flex-col gap-6 max-w-[900px] w-full">
 
                     <!-- Map Card -->
                     <div class="rounded-2xl overflow-hidden">
-                        <div class="bg-[#31324C]/75 flex flex-row justify-between items-center px-4 py-3">
+                        <div class="bg-[#31324C]/75 flex flex-row justify-between items-center p-6">
                             <div class="flex flex-row items-center gap-3">
                                 <img class="w-7 h-7" src="/img/localactivitymap-Picsart-BackgroundRemover.webp" alt="">
                                 <span class="font-bold text-sm lg:text-base">Local Activity Map</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <span
-                                    class="text-[#B5B5B5] flex items-center justify-center h-7 w-16 bg-[#0E0F26] text-sm rounded-lg">PH-NCR</span>
-                                <span
-                                    class="bg-[#0E0F26] flex items-center justify-center h-7 w-16 text-[#B5B5B5] text-sm rounded-lg">LIVE</span>
+                                <span class="text-[#B5B5B5] px-3 py-1.5 bg-[#0E0F26] text-sm rounded-lg font-bold">
+                                    PH-NCR
+                                </span>
+
+                                <span class="text-[#B5B5B5] px-3 py-1.5 bg-[#0E0F26] text-sm rounded-lg font-bold">
+                                    LIVE
+                                </span>
                             </div>
                         </div>
-                        <div class="w-full h-64 lg:h-96 bg-[#0E0F26] flex items-center justify-center">
+                        <div class="w-full h-80 lg:h-[420px] bg-[#0E0F26] flex items-center justify-center">
                             <img src="/img/map.png" alt="Map" class="w-full h-full object-cover">
                         </div>
                     </div>
@@ -202,18 +313,19 @@
                 <div class="flex flex-col gap-6 xl:w-80">
 
                     <!-- This Device -->
-                    <div class="rounded-2xl bg-[#31324C]/50 flex flex-col items-center pt-14 pb-16 gap-4">
-                        <span class="text-[#B5B5B5] text-sm">This Device</span>
+                    <div class="rounded-2xl bg-[#31324C]/50 flex flex-col items-center justify-between
+                                pt-14 pb-10 gap-4 min-h-[503px]">
+                        <span class="text-white text-sm font-bold">This Device</span>
 
                         <!-- Battery Ring -->
-                        <div class="relative flex items-center justify-center">
+                        <div class="relative flex items-center justify-center mt-14">
                             <svg class="w-40 h-40 -rotate-90" viewBox="0 0 120 120">
                                 <circle cx="60" cy="60" r="50" fill="none" stroke="#1A1B3A" stroke-width="10" />
                                 <circle cx="60" cy="60" r="50" fill="none" stroke="#FFBB02" stroke-width="10"
                                     stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="78" />
                             </svg>
                             <div class="absolute flex flex-col items-center">
-                                <span class="text-white text-3xl font-bold">75%</span>
+                                <span class="text-white text-3xl font-bold">(  )</span>
                                 <span class="text-[#B5B5B5] text-xs tracking-widest">BATTERY</span>
                             </div>
                         </div>
@@ -222,11 +334,11 @@
                         <div class="flex flex-row w-full px-4 gap-3 text-xs">
                             <div class="flex flex-col items-center bg-[#1A1B3A] rounded-xl p-3 flex-1">
                                 <span class="text-[#B5B5B5] tracking-widest">RUNTIME</span>
-                                <span class="text-white font-bold text-base mt-1">(time)</span>
+                                <span class="text-white font-bold text-base mt-1">(  )</span>
                             </div>
                             <div class="flex flex-col items-center bg-[#1A1B3A] rounded-xl p-3 flex-1">
                                 <span class="text-[#B5B5B5] tracking-widest">STATE</span>
-                                <span class="text-[#FFBB02] font-bold text-base mt-1">(unplugged)</span>
+                                <span class="text-[#FFBB02] font-bold text-base mt-1">(  )</span>
                             </div>
                         </div>
                     </div>
@@ -234,38 +346,32 @@
             </section>
 
             <!-- RECENT REPORTS -->
-            <section class="flex flex-col xl:flex-row gap-6 px-4 lg:px-8 mt-8 pb-10">
+            <section class="flex flex-col xl:flex-row gap-6 px-4 lg:px-8 pb-10">
 
                 <!-- Recent Reports -->
-                <div class="bg-[#31324C]/50 rounded-2xl p-6 flex flex-col gap-4">
+                <div class="bg-[#31324C]/50 rounded-2xl p-6 flex flex-col gap-4 w-full">
                     <div class="flex flex-row items-center gap-3">
-                        <img class="w-10 h-10" src="/img/recentreports.png" alt="">
+                        <img class="w-6 h-6" src="/img/recentreports.png" alt="">
                         <h1 class="text-lg font-bold">Recent Reports</h1>
                     </div>
 
                     <!-- Report 1 -->
-                    <div class="flex flex-row items-center gap-4 bg-[#0D0E2A] rounded-xl px-5 py-4 relative">
-                        <span class="absolute top-4 right-5 text-[#B5B5B5] text-xs"></span>
-                        <img class="w-16 lg:w-20 rounded-2xl bg-[#EB3225]/40" src="/img/volt.png" alt="">
+                    <div class="flex flex-row items-center gap-4 bg-[#0D0E2A] rounded-xl px-5 py-4 relative h-28">
+                        <span class="absolute top-4 right-5 text-[#B5B5B5] text-xs">(  )</span>
+                        <img class="w-16 lg:w-10 rounded-md bg-[#EB3225]/40" src="/img/volt.png" alt="">
                         <div class="flex flex-col gap-1">
-                            <span class="text-white font-bold text-sm lg:text-base">Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Ab odio, expedita provident voluptates illo fuga explicabo
-                                tempore sapiente delectus iusto nostrum dicta nobis cumque voluptas reprehenderit amet
-                                veniam ipsa aliquam.</span>
-                            <span class="text-[#B5B5B5] text-xs lg:text-sm">Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Rem ad non, accusantium consequuntur voluptatum minus labore culpa!
-                                Tempore, illum cumque, saepe, unde repudiandae accusantium expedita aut odio cupiditate
-                                pariatur consequatur.</span>
+                            <span class="text-white font-bold text-sm lg:text-base">(  )</span>
+                            <span class="text-[#B5B5B5] text-xs lg:text-sm">(  )</span>
                         </div>
                     </div>
 
                     <!-- Report 2 -->
-                    <div class="flex flex-row items-center gap-4 bg-[#0D0E2A] rounded-xl px-5 py-4 relative">
-                        <span class="absolute top-4 right-5 text-[#B5B5B5] text-xs"></span>
-                        <img class="w-16 lg:w-20 rounded-2xl bg-[#2B79C2]/40" src="/img/maintenanceupdate.png" alt="">
+                    <div class="flex flex-row items-center gap-4 bg-[#0D0E2A] rounded-xl px-5 py-4 relative h-28">
+                        <span class="absolute top-4 right-5 text-[#B5B5B5] text-xs">(  )</span>
+                        <img class="w-16 lg:w-10 rounded-md bg-[#2B79C2]/40" src="/img/maintenanceupdate.png" alt="">
                         <div class="flex flex-col gap-1">
-                            <span class="text-white font-bold text-sm lg:text-base"></span>
-                            <span class="text-[#B5B5B5] text-xs lg:text-sm"></span>
+                            <span class="text-white font-bold text-sm lg:text-base">(  )</span>
+                            <span class="text-[#B5B5B5] text-xs lg:text-sm">(  )</span>
                         </div>
                     </div>
                 </div>
@@ -275,7 +381,6 @@
     </div>
 
     <!-- REPORT OUTAGE -->
-    <!-- Popup Overlay -->
     <div id="popup" style="display:none;" class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
 
         <!-- Popup Box -->
@@ -337,7 +442,6 @@
         </div>
     </div>
 
-
     <!-- PROFILE SETTINGS -->
     <div id="profile" style="display:none;"
         class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-3 sm:p-6">
@@ -390,9 +494,13 @@
 
                         <div class="py-4 border-b border-[#AFAFAF]">
                             <button class="w-full h-[42px] text-white rounded-lg bg-[#364057] text-sm font-bold
-                            hover:bg-[#FFBB02] hover:text-black transition-colors cursor-pointer">
+                            hover:bg-[#FFBB02] hover:text-black cursor-pointer">
                                 Update Basic Profile
-                            </button>
+
+transition-all duration-200 ease-in-out                            </button>
+                        </div>      
+                        <div>
+
                         </div>
                     </div>
 
@@ -421,9 +529,13 @@
 
                         <div class="pt-4">
                             <button class="w-full h-[42px] rounded-lg bg-[#FFBB02] text-sm font-bold
-                            hover:bg-[#364057] hover:text-white transition-colors cursor-pointer">
+                            hover:bg-[#364057] hover:text-white cursor-pointer">
                                 Change Password
-                            </button>
+
+transition-all duration-200 ease-in-out                            </button>
+                        </div>      
+                        <div>
+
                         </div>
                     </div>
 
@@ -432,23 +544,11 @@
         </div>
     </div>
 
-
+    <script src="./script.js"></script>
     <script>
-        const toggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        toggle.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-full');
-            overlay.classList.toggle('hidden');
-        });
-
-        overlay.addEventListener('click', () => {
-            sidebar.classList.add('-translate-x-full');
-            overlay.classList.add('hidden');
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
         });
     </script>
-
 </body>
-
 </html>

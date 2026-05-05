@@ -44,14 +44,14 @@
 
         <div class="flex items-center gap-6 md:gap-10 p-2 md:p-4 text-xs md:text-sm font-bold">
             <a href="./login.html" onclick="fadeOut(event)">
-                <button class="cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#FFBB02]
+                <button class="int-btn cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#FFBB02]
                     text-black rounded-full hover:bg-[#D99A00] active:bg-[#FFC833] transition-colors">
                     Login
                 </button>
                 </a>
 
                 <a href="./signup.html" onclick="fadeOut(event)">
-                <button class="cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#BCBCBC]/25
+                <button class="int-btn cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#BCBCBC]/25
                     rounded-full hover:bg-white/50 transition-colors">
                     <span class="text-white/75">Sign Up</span>
                 </button>
@@ -101,18 +101,21 @@
                     </p><br><br>
                 </div>
                 <div class="flex justify-center gap-4 md:gap-20 flex-wrap">
-                    <button class="cursor-pointer px-4 py-3 rounded-lg bg-[#FFBB02] text-black text-sm md:text-base
-                    hover:bg-[#D99A00] active:bg-[#FFC833] transition-colors font-bold">
-                        Get Started for Free
-                    </button>
-                    <button class="group cursor-pointer px-6 md:px-10 py-3 rounded-lg bg-[#BCBCBC]/25 text-sm md:text-base
-                        hover:bg-white/50 active:bg-white/60 transition-colors font-bold">
-
-                        <span class="text-white/75 group-hover:text-black group-active:text-black transition-colors">
-                            Report Outages
-                        </span>
-
-                    </button>
+                    <a href="login.html" onclick="fadeOut(event)">
+                        <button class="int-btn cursor-pointer px-4 py-3 rounded-lg bg-[#FFBB02] text-black text-sm md:text-base
+                        hover:bg-[#D99A00] active:bg-[#FFC833] transition-colors font-bold">
+                            Get Started for Free
+                        </button>
+                    </a>
+                    
+                    <a href="dashboard.html" onclick="fadeOut(event)">
+                        <button class="int-btn group cursor-pointer px-6 md:px-10 py-3 rounded-lg bg-[#BCBCBC]/25 text-sm md:text-base
+                            hover:bg-white/50 active:bg-white/60 transition-colors font-bold">
+                            <span class="text-white/75 group-hover:text-black group-active:text-black transition-colors">
+                                Report Outages
+                            </span>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -309,7 +312,7 @@
                 <span class="shadow-[0_0_20px_#FFBB02] text-white px-6 md:px-10 py-8 md:py-10 rounded-4xl bg-[#0C0D2A]">
                     <span class="flex justify-start items-center gap-4">
                         <span class="bg-[#16184E] rounded-[10px] flex-shrink-0 p-1">
-                            <img class="h-8 w-8 m-1" src="../img/bell.png" alt="">
+                            <img class="h-8 w-8 m-1" src="../img/bell-gradient.png" alt="">
                         </span>
                         <span class="font-bold">Notification Alerts</span>
                     </span><br>

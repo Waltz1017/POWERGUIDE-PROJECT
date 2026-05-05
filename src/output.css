@@ -161,7 +161,6 @@
   }
   img, svg, video, canvas, audio, iframe, embed, object {
     display: block;
-    vertical-align: middle;
   }
   img, video {
     max-width: 100%;
@@ -2072,43 +2071,45 @@
   }
 }
 
-body { font-family: 'Montserrat', sans-serif; }
+body { font-family: 'Montserrat', sans-serif; opacity: 0;transform: translateY(10px);
+       transition: opacity 0.35s ease, transform 0.35s ease; overflow: hidden !important; }
+body.loaded { opacity: 1;transform: translateY(0); }
 
-header {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-        
-header.scrolled {
-    background-color: rgba(0, 0, 0, 0.85) !important;
-    backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
+header {  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+header.scrolled {  background-color: rgba(0, 0, 0, 0.85) !important; backdrop-filter: blur(16px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
 
-body {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
+input:focus {  outline: none; border: 1px solid #FFBB02 !important; box-shadow: 0 0 0 1px #FFBB02; }
 
-body.loaded {
-  opacity: 1;
-  transform: translateY(0);
-}
+.int-btn {  transition: transform 0.2s ease, background-color 0.2s ease; }
+.int-btn:hover {  transform: scale(1.05); }
+.int-btn:active {  transform: scale(0.95); }
 
-input:focus {
-    outline: none;
-    border: 1px solid #FFBB02 !important;
-    box-shadow: 0 0 0 1px #FFBB02;
+.card-hover {  transition: box-shadow 0.3s ease, transform 0.3s ease; }
+.card-hover:hover {  transform: translateY(-3px); }
+
+.glow-voltage:hover   { box-shadow: 0 0 25px 3px rgba(0, 207, 255, 0.40); }
+.glow-uptime:hover    { box-shadow: 0 0 25px 3px rgba(250, 176, 5, 0.45); }
+.glow-reports:hover   { box-shadow: 0 0 25px 3px rgba(203, 52, 53, 0.60); }
+.glow-readiness:hover { box-shadow: 0 0 25px 3px rgba(95, 203, 95, 0.60); }
+
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.int-btn {
-    transition: transform 0.2s ease, background-color 0.2s ease;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.int-btn:hover {
-    transform: scale(1.05);
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 9999px;
 }
 
-.int-btn:active {
-    transform: scale(0.95);
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
 }
