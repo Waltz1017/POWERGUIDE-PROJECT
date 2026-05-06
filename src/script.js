@@ -69,3 +69,47 @@ overlay.addEventListener('click', () => {
     sidebar.classList.add('-translate-x-full');
     overlay.classList.add('hidden');
 });
+
+function toggleNotif() {
+    const panel = document.getElementById("notifPanel");
+    panel.classList.toggle("hidden");
+}
+
+document.addEventListener("click", function (e) {
+    const panel = document.getElementById("notifPanel");
+    const button = e.target.closest("button");
+
+    if (!panel.contains(e.target) && !button) {
+        panel.classList.add("hidden");
+    }
+});
+
+function toggleNotif() {
+    const panel = document.getElementById('notifPanel');
+    const bell = document.getElementById('bellIcon');
+    const bellHover = document.getElementById('bellIconHover');
+    const isOpen = !panel.classList.contains('hidden');
+
+    panel.classList.toggle('hidden');
+
+    // Keep the active icon shown while panel is open
+    if (!isOpen) {
+        bell.classList.add('!hidden');
+        bellHover.classList.add('!block');
+    } else {
+        bell.classList.remove('!hidden');
+        bellHover.classList.remove('!block');
+    }
+}
+
+// Close panel when clicking outside
+document.addEventListener('click', function (e) {
+    const panel = document.getElementById('notifPanel');
+    const button = e.target.closest('button');
+
+    if (!button && !panel.classList.contains('hidden')) {
+        panel.classList.add('hidden');
+        document.getElementById('bellIcon').classList.remove('!hidden');
+        document.getElementById('bellIconHover').classList.remove('!block');
+    }
+});
