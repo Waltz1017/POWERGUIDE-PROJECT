@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerGuide Settings</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0b1120] text-white h-screen overflow-hidden">
+
+  <div class="flex w-full h-screen">
+
+    <!-- SIDEBAR -->
+    <nav
+      class="hidden lg:flex flex-col fixed top-0 left-0 h-screen w-[280px] xl:w-[340px] bg-[#03041A] text-[#B5B5B5] pt-10 px-5">
+
+      <div class="flex pb-10 items-center gap-3">
+        <img class="w-10 lg:w-14" src="logo.png">
+        <div>
+          <span class="text-white font-extrabold text-lg">
+            POWER<span class="text-[#FFBB02]">GUIDE</span>
+          </span>
+          <p class="text-xs">SECURITY AND RELIABILITY</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2 text-sm">
+        <a href="#" class="px-4 h-11 flex items-center rounded-lg hover:bg-yellow-400 hover:text-black">Dashboard</a>
+        <a href="#" class="px-4 h-11 flex items-center rounded-lg hover:bg-yellow-400 hover:text-black">Outage Map</a>
+        <a href="#" class="px-4 h-11 flex items-center rounded-lg hover:bg-yellow-400 hover:text-black">Devices</a>
+        <a href="#" class="px-4 h-11 flex items-center rounded-lg hover:bg-yellow-400 hover:text-black">Find Hubs</a>
+
+        <span class="text-xs text-white/30 px-4 pt-4">COMMUNITY</span>
+
+        <a href="#" class="px-4 h-11 flex items-center rounded-lg hover:bg-yellow-400 hover:text-black">Reports</a>
+        <a href="#" class="px-4 h-11 flex items-center rounded-lg bg-yellow-400 text-black font-semibold">Settings</a>
+      </div>
+
+    </nav>
+
+    <!-- MAIN -->
+    <main class="flex-1 p-6 w-full overflow-y-auto lg:ml-[280px] xl:ml-[340px]">
+
+      <div class="max-w-7xl mx-auto">
+
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6">
+          <div>
+            <h2 class="text-xl font-semibold">Account and Preferences</h2>
+            <p class="text-sm text-gray-400">Manage your digital identity and alert matrix</p>
+          </div>
+
+          <button onclick="validateForm()"
+            class="w-full sm:w-auto bg-yellow-400 text-black px-5 py-2 rounded-md text-sm font-semibold">
+            Save All Changes
+          </button>
+        </div>
+
+        <div class="bg-[#111827] border border-yellow-400/40 rounded-2xl p-6 mb-6">
+          <div class="flex items-center gap-5">
+
+            <div class="relative w-16 h-16">
+
+              <img id="profileImage" class="w-16 h-16 rounded-xl object-cover hidden">
+
+              <div id="avatarBox"
+                class="w-16 h-16 rounded-xl bg-yellow-400 text-black flex items-center justify-center font-bold text-lg">
+                --
+              </div>
+
+              <input type="file" id="uploadPhoto" accept="image/*" class="hidden">
+
+              <button onclick="document.getElementById('uploadPhoto').click()" class="absolute inset-0"></button>
+
+            </div>
+
+            <div class="flex-1">
+              <p class="text-sm text-gray-400 mb-3">
+                Verified Resident - Mangin
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+                <div>
+                  <label class="text-xs text-gray-400">Full Name</label>
+                  <input id="fullName" oninput="generateAvatar()"
+                    class="bg-[#1f2937] p-3 rounded-md text-sm outline-none w-full">
+                </div>
+
+                <div>
+                  <label class="text-xs text-gray-400">Email</label>
+                  <input type="email" class="bg-[#1f2937] p-3 rounded-md text-sm outline-none w-full">
+                </div>
+
+                <div>
+                  <label class="text-xs text-gray-400">Contact Number</label>
+                  <input id="contact" type="tel" inputmode="numeric" maxlength="11"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,11)"
+                    class="bg-[#1f2937] p-3 rounded-md text-sm outline-none w-full">
+                </div>
+
+              </div>
+            </div>
+
+            <span class="hidden sm:block text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded">
+              ACTIVE USER
+            </span>
+
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div class="bg-[#111827] p-6 rounded-2xl">
+            <h3 class="font-semibold mb-4 text-lg">Notification Matrix</h3>
+
+            <div class="space-y-4">
+
+              <label class="flex justify-between items-center bg-[#1f2937] p-4 rounded-xl cursor-pointer">
+                <div>
+                  <p class="font-medium">Emergency Grid Failure</p>
+                  <p class="text-xs text-gray-400">Immediate alerts</p>
+                </div>
+
+                <div class="relative">
+                  <input type="checkbox" class="sr-only peer">
+                  <div class="w-12 h-6 bg-gray-600 rounded-full peer-checked:bg-yellow-400 transition"></div>
+                  <div
+                    class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-all duration-300 peer-checked:translate-x-6">
+                  </div>
+                </div>
+              </label>
+
+              <label class="flex justify-between items-center bg-[#1f2937] p-4 rounded-xl cursor-pointer">
+                <div>
+                  <p class="font-medium">Scheduled Maintenance</p>
+                  <p class="text-xs text-gray-400">48-hour notice</p>
+                </div>
+
+                <div class="relative">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-12 h-6 bg-gray-600 rounded-full peer-checked:bg-yellow-400 transition"></div>
+                  <div
+                    class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-all duration-300 peer-checked:translate-x-6">
+                  </div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <div class="bg-[#111827] p-6 rounded-2xl">
+            <h3 class="font-semibold mb-4 text-lg">Security and Access</h3>
+
+            <div class="bg-[#1f2937] p-4 rounded-xl">
+              <p class="font-medium">Update Master Password</p>
+              <p class="text-xs text-gray-400">Last changed recently</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    const upload = document.getElementById("uploadPhoto");
+    const img = document.getElementById("profileImage");
+    const box = document.getElementById("avatarBox");
+
+    upload.addEventListener("change", function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        img.src = e.target.result;
+        img.classList.remove("hidden");
+        box.classList.add("hidden");
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function generateAvatar() {
+      const name = document.getElementById("fullName").value.trim();
+
+      if (!img.classList.contains("hidden")) return;
+
+      if (!name) {
+        box.textContent = "--";
+        return;
+      }
+
+      const words = name.split(" ");
+      let initials = "";
+
+      words.forEach(word => {
+        if (word.length > 0) initials += word[0];
+      });
+
+      box.textContent = initials.toUpperCase().slice(0, 2);
+    }
+
+    function validateForm() {
+      const contact = document.getElementById("contact").value;
+
+      if (contact.length !== 11) {
+        alert("Contact number must be exactly 11 digits.");
+        return;
+      }
+
+      alert("Saved successfully!");
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | POWERGUIDE</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-black font-['Montserrat'] text-white">
+
+    <!-- Header (Consistent with Landing) -->
+    <header id="mainHeader" class="flex flex-row sticky top-0 z-50 h-16 md:h-25 text-2xl items-center border-b border-gray-400 justify-between px-4 md:px-0 backdrop-blur-[2px] bg-black/50">
+        <div class="flex pl-8 items-center gap-2">
+            <a href="/src/landing.html#footer" class="flex pl-10 items-center gap-2">
+                <img class="w-10 md:w-16" src="../img/logo.png" alt="PowerGuide Logo">
+                <div class="flex flex-col justify-center items-start">
+                    <span class="text-white font-bold text-lg md:text-xl leading-tight">
+                        POWER<span class="text-[#FFBB02]">GUIDE</span>
+                    </span>
+                    <span class="text-white font-medium text-sm md:text-xs tracking-widest opacity-70 leading-none">
+                        SECURITY AND RELIABILITY
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <ul class="hidden md:flex flex-row font-bold gap-6 ml-auto text-gray-400 text-xs md:text-sm mr-10">
+            <li ><a href="/src/landing.html#footer">Back to Home</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 bg-[#03041A] text-center border-b border-white/10">
+        <h1 class="text-4xl md:text-6xl font-black mb-4">Privacy <span class="text-[#FFBB02]">Policy</span></h1>
+        <p class="text-gray-400 text-sm md:text-base">Last Updated: May 6, 2026</p>
+    </section>
+
+    <!-- Content Section -->
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 gap-12">
+            
+            <!-- Intro Card -->
+            <div class="bg-[#0C0D2A] p-8 md:p-12 rounded-4xl border border-white/5 shadow-[0_0_20px_rgba(255,187,2,0.1)]">
+                <h2 class="text-[#FFBB02] text-2xl font-bold mb-6">Introduction</h2>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    At <strong>POWERGUIDE</strong>, we are committed to protecting the privacy of our community members in Dagupan City and beyond. This policy explains how we collect, use, and protect your data when you use our outage reporting and battery tracking services.
+                </p>
+            </div>
+
+            <!-- Detailed Sections -->
+            <div class="space-y-10">
+                <section>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-[#16184E] p-2 rounded-lg">
+                            <img src="../img/location.png" class="w-6 h-6" alt="">
+                        </div>
+                        <h3 class="text-xl font-bold">1. Information We Collect</h3>
+                    </div>
+                    <div class="pl-14 text-gray-400 space-y-4">
+                        <p><strong class="text-white">Location Data:</strong> To provide accurate real-time monitoring, we collect approximate location data when you report an outage.</p>
+                        <p><strong class="text-white">Device Information:</strong> Our Smart Battery Tracker monitors device battery percentage and health locally to provide alerts.</p>
+                        <p><strong class="text-white">Account Info:</strong> Email addresses provided during sign-up or subscription are used solely for alerts and security updates.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-[#16184E] p-2 rounded-lg">
+                            <img src="../img/realtime.png" class="w-6 h-6" alt="">
+                        </div>
+                        <h3 class="text-xl font-bold">2. How We Use Your Data</h3>
+                    </div>
+                    <div class="pl-14 text-gray-400 space-y-4">
+                        <p>Your data helps us build the <span class="text-[#FFBB02]">Crowdsourced Outage Map</span>. Individual reports are aggregated to show neighborhood-level status while keeping your specific house number private.</p>
+                        <p>We do NOT sell your data to third-party advertisers. We use it only to improve grid reliability information for the community.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-[#16184E] p-2 rounded-lg">
+                            <img src="../img/bell-gradient.png" class="w-6 h-6" alt="">
+                        </div>
+                        <h3 class="text-xl font-bold">3. Your Rights</h3>
+                    </div>
+                    <div class="pl-14 text-gray-400">
+                        <p>You have the right to access, update, or delete your account information at any time through the dashboard. For data export requests, please contact our support team.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Identical to Landing) -->
+    <footer class="flex flex-col bg-[#0B0C22] px-6 md:px-10 py-10 gap-10 border-t border-white/20">
+        <div class="flex flex-col lg:flex-row justify-evenly gap-10 border-b border-white/20 pb-10">
+            <div class="flex flex-col gap-4">
+                <div class="flex">
+                    <img class="w-10 md:w-16" src="../img/logo.png" alt="">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-white font-bold text-lg md:text-xl leading-tight">POWER<span class="text-[#FFBB02]">GUIDE</span></span>
+                        <span class="text-white/70 font-medium text-[10px] tracking-widest leading-none">SECURITY AND RELIABILITY</span>
+                        <span class="text-white/50 text-sm">V6 @ 2026 POWERGUIDE.</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
