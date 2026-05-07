@@ -71,45 +71,67 @@ overlay.addEventListener('click', () => {
 });
 
 function toggleNotif() {
-    const panel = document.getElementById("notifPanel");
-    panel.classList.toggle("hidden");
-}
-
-document.addEventListener("click", function (e) {
-    const panel = document.getElementById("notifPanel");
-    const button = e.target.closest("button");
-
-    if (!panel.contains(e.target) && !button) {
-        panel.classList.add("hidden");
-    }
-});
-
-function toggleNotif() {
     const panel = document.getElementById('notifPanel');
     const bell = document.getElementById('bellIcon');
     const bellHover = document.getElementById('bellIconHover');
-    const isOpen = !panel.classList.contains('hidden');
+    const isOpen = panel.classList.contains('is-open');
 
-    panel.classList.toggle('hidden');
-
-    // Keep the active icon shown while panel is open
-    if (!isOpen) {
-        bell.classList.add('!hidden');
-        bellHover.classList.add('!block');
+    if (isOpen) {
+        closeNotif();
     } else {
-        bell.classList.remove('!hidden');
-        bellHover.classList.remove('!block');
+        // Show panel
+        panel.classList.add('is-open', 'opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
+        panel.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2', 'scale-95');
+        bell.classList.add('!hidden');
+        bellHover.classList.remove('hidden');
+        bellHover.classList.add('block');
     }
 }
 
-// Close panel when clicking outside
+function closeNotif() {
+    const panel = document.getElementById('notifPanel');
+    const bell = document.getElementById('bellIcon');
+    const bellHover = document.getElementById('bellIconHover');
+
+    panel.classList.remove('is-open', 'opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
+    panel.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2', 'scale-95');
+    bell.classList.remove('!hidden');
+    bellHover.classList.remove('block');
+    bellHover.classList.add('hidden');
+}
+
+// Close when clicking outside
 document.addEventListener('click', function (e) {
     const panel = document.getElementById('notifPanel');
-    const button = e.target.closest('button');
+    const btn = document.getElementById('notifBtn');
 
-    if (!button && !panel.classList.contains('hidden')) {
-        panel.classList.add('hidden');
-        document.getElementById('bellIcon').classList.remove('!hidden');
-        document.getElementById('bellIconHover').classList.remove('!block');
+    if (panel.classList.contains('is-open') && !panel.contains(e.target) && !btn.contains(e.target)) {
+        closeNotif();
     }
 });
+
+function openProfile() {
+    const profile = document.getElementById("profile");
+    const box = document.getElementById("profileBox");
+
+    profile.classList.remove("opacity-0", "invisible", "pointer-events-none");
+    profile.classList.add("opacity-100", "visible");
+
+    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
+    box.classList.add("scale-100", "translate-y-0", "opacity-100");
+}
+
+function closeProfile() {
+    const profile = document.getElementById("profile");
+    const box = document.getElementById("profileBox");
+
+    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
+    box.classList.add("scale-95", "translate-y-4", "opacity-0");
+
+    profile.classList.remove("opacity-100", "visible");
+    profile.classList.add("opacity-0", "invisible");
+
+    setTimeout(() => {
+        profile.classList.add("pointer-events-none");
+    }, 300);
+}

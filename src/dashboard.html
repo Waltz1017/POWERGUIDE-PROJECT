@@ -51,16 +51,21 @@
             <!-- Nav Links -->
             <div class="flex flex-col gap-2">
                 <span class="text-xs font-bold tracking-widest text-white text-left px-4 pt-4 mb-2">MAIN MENU</span>
-                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
-                    rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
-                    hover:scale-[1.03] active:scale-[0.98] transform
-                    transition-all duration-200 ease-in-out transform">
-                    <img class="h-7 w-7 transition-all duration-200
-                        group-hover:opacity-0 absolute"
-                        src="/img/dashboard.png" alt="">
-                    <img class="h-7 w-7 transition-all duration-200
-                        opacity-0 group-hover:opacity-100"
-                        src="/img/dashboard-black.png" alt="">
+                <a href="dashboard.html" class="group flex flex-row items-center gap-3 px-4 h-11
+                    rounded-lg bg-[#FEBB02] text-black
+                    hover:scale-[1.03] active:scale-[0.98]
+                    transition-all duration-200 ease-in-out">
+
+                    <div class="relative w-7 h-7">
+                        <!-- Hide default icon -->
+                        <img class="absolute opacity-0"
+                            src="/img/dashboard.png" alt="">
+
+                        <!-- Always show black icon -->
+                        <img class="absolute opacity-100"
+                            src="/img/dashboard-black.png" alt="">
+                    </div>
+
                     <span class="text-sm font-semibold">Dashboard</span>
                 </a>
 
@@ -119,7 +124,7 @@
             </div>
 
             <!-- Pro Tip -->
-            <div class="flex flex-col text-left mt-auto mb-5 p-6 rounded-lg bg-[#31324C]/50">
+            <div class="flex flex-col text-left mt-auto mb-8 mx-2 p-6 rounded-lg bg-[#31324C]/50">
                 <span class="text-[#FEBB02] text-base font-bold mb-1">PRO TIP</span>
                 <span class="text-white/50 text-sm font-normal">Lower screen brightness to 40% to save 15min of
                     runtime.</span>
@@ -182,20 +187,25 @@
                     <div class="relative">
 
                         <!-- Bell Icon -->
-                        <button onclick="toggleNotif()" class="relative group">
-                            <img id="bellIcon" src="/img/bell-gradient.png" class="w-8 h-8 cursor-pointer transition-opacity duration-150 group-hover:hidden" alt="">
-                            <img id="bellIconHover" src="/img/bell-filled.png" class="w-8 h-8 cursor-pointer transition-opacity duration-150 hidden group-hover:block" alt="">
+                        <button id="notifBtn" onclick="toggleNotif(event)" class="relative group">
+                            <img id="bellIcon" src="/img/bell-gradient.png"
+                                class="w-8 h-8 cursor-pointer transition-opacity duration-150 group-hover:hidden" alt="">
+
+                            <img id="bellIconHover" src="/img/bell-filled.png"
+                                class="w-8 h-8 cursor-pointer transition-opacity duration-150 hidden group-hover:block" alt="">
                         </button>
 
                         <!-- Notification Panel -->
                         <div id="notifPanel"
-                            class="hidden absolute right-0 mt-4 w-[350px] bg-[#31324C]/95 rounded-2xl shadow-lg z-50">
+                            class="absolute right-0 mt-4 w-[350px] bg-[#31324C]/95 rounded-2xl shadow-lg z-50
+                                opacity-0 pointer-events-none -translate-y-2 scale-95
+                                transition-all duration-200 ease-out">
 
                             <section class="flex flex-col p-4">
 
                                 <!-- Header -->
                                 <div class="flex flex-row items-center gap-3 mb-4">
-                                    <img class="w-5 h-5" src="/img/recentreports.png" alt="">
+                                    <img class="w-5 h-5" src="/img/bell-gray.svg" alt="">
                                     <h1 class="text-sm font-bold text-white">Notifications</h1>
                                 </div>
 
@@ -230,7 +240,7 @@
                     </div>
 
                     <!-- Profile initials -->
-                     <button onclick="document.getElementById('profile').style.display='flex'"">
+                     <button onclick="openProfile()">
                         <div class="h-12 w-12 rounded-full border-2 border-[#FFBB02]
                             flex items-center justify-center cursor-pointer
                             hover:bg-[#FFBB02] hover:text-black
@@ -476,14 +486,21 @@
     </div>-->
 
     <!-- PROFILE SETTINGS -->
-    <div id="profile" style="display:none;"
-        class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-3 sm:p-6">
+    <div id="profile"
+            class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-3 sm:p-6
+            opacity-0 invisible pointer-events-none
+            transition-all duration-300 ease-out">
 
-        <div class="relative bg-[#0C0D2A] border border-amber-200 rounded-[20px] shadow-[0_0_20px_#FFCA41]
-        w-full max-w-[700px] overflow-hidden">
+        <div id="profileBox"
+                class="relative bg-[#0C0D2A] border border-amber-200 rounded-[20px]
+                shadow-[0_0_20px_#FFCA41]
+                w-full max-w-[700px] overflow-hidden
+
+                transform scale-95 translate-y-4 opacity-0
+                transition-all duration-300 ease-out">
 
             <!-- ✕ Close Button -->
-            <button onclick="document.getElementById('profile').style.display='none'"
+            <button onclick="closeProfile()"
                 class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10 leading-none px-2">
                 &times;
             </button>
@@ -526,8 +543,9 @@
                         </div>
 
                         <div class="py-4 border-b border-[#AFAFAF]">
-                            <button class="w-full h-[42px] text-white rounded-lg bg-[#364057] text-sm font-bold
-                            hover:bg-[#FFBB02] hover:text-black cursor-pointer transition-all duration-200 ease-in-out">
+                            <button class="int-btn h-[42px] w-full text-white rounded-lg bg-[#364057] text-sm font-bold
+                            hover:bg-[#FFBB02] hover:text-black cursor-pointer transition-all duration-200 ease-in-out
+                            hover:bg-white/50 active:bg-white/60">
                                 Update Basic Profile
                             </button>
                         </div>      
@@ -560,8 +578,9 @@
                         </div>
 
                         <div class="pt-4">
-                            <button class="w-full h-[42px] rounded-lg bg-[#FFBB02] text-sm font-bold
-                            hover:bg-[#364057] hover:text-white cursor-pointer transition-all duration-200 ease-in-out">
+                            <button class="int-btn w-full h-[42px] rounded-lg bg-[#364057] text-sm font-bold
+                            hover:bg-[#364057] hover:text-black cursor-pointer transition-all duration-200 ease-in-out
+                            hover:bg-white/50 active:bg-white/60">
                                 Change Password
                             </button>
                         </div>      
