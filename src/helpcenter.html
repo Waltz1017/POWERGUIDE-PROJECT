@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | POWERGUIDE</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-black font-['Montserrat']">
+
+    <!-- Header (Same as Landing) -->
+    <header id="mainHeader" class="flex flex-row sticky top-0 z-50 h-16 md:h-25 text-2xl items-center border-b border-gray-400 justify-between px-4 md:px-0 backdrop-blur-[2px] bg-black/50">
+        <div class="flex pl-8 items-center gap-2">
+            <a href="/src/landing.html#footer" class="flex pl-10 items-center gap-2">
+                <img class="w-10 md:w-16" src="../img/logo.png" alt="PowerGuide Logo">
+                <div class="flex flex-col justify-center items-start">
+                    <span class="text-white font-bold text-lg md:text-xl leading-tight">
+                        POWER<span class="text-[#FFBB02]">GUIDE</span>
+                    </span>
+                    <span class="text-white font-medium text-sm md:text-xs tracking-widest opacity-70 leading-none">
+                        SECURITY AND RELIABILITY
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <ul class="hidden md:flex flex-row font-bold gap-6 ml-auto text-gray-400 text-xs md:text-sm mr-10">
+            <li ><a href="/src/landing.html#footer">Back to Home</a></li>
+        </ul>
+    </header>
+
+    <!-- Help Center Hero -->
+    <section class="relative py-20 bg-[#03041A] border-b border-white/10">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6">How can we <span class="text-[#FFBB02]">help?</span></h1>
+            <div class="relative max-w-2xl mx-auto">
+                <input type="text" placeholder="Search for articles (e.g. 'battery tracking')" 
+                       class="w-full bg-[#0C0D2A] border border-gray-600 rounded-full py-4 px-8 text-white focus:outline-none focus:border-[#FFBB02] shadow-[0_0_15px_rgba(255,187,2,0.2)]">
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Categories -->
+    <section class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Category 1 -->
+                <div class="bg-[#0C0D2A] p-8 rounded-4xl border border-white/5 hover:shadow-[0_0_20px_#FFBB02] transition-all group">
+                    <div class="bg-[#16184E] w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <img src="../img/location.png" class="w-6 h-6" alt="">
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-4 group-hover:text-[#FFBB02]">Outage Reporting</h3>
+                    <ul class="text-gray-400 space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white">How to report a brownout</a></li>
+                        <li><a href="#" class="hover:text-white">Verifying local reports</a></li>
+                        <li><a href="#" class="hover:text-white">Understanding the map icons</a></li>
+                    </ul>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="bg-[#0C0D2A] p-8 rounded-4xl border border-white/5 hover:shadow-[0_0_20px_#FFBB02] transition-all group">
+                    <div class="bg-[#16184E] w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <img src="../img/battery.png" class="w-6 h-6" alt="">
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-4 group-hover:text-[#FFBB02]">Battery Management</h3>
+                    <ul class="text-gray-400 space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white">Setting low-power alerts</a></li>
+                        <li><a href="#" class="hover:text-white">Device compatibility</a></li>
+                        <li><a href="#" class="hover:text-white">Syncing multiple devices</a></li>
+                    </ul>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="bg-[#0C0D2A] p-8 rounded-4xl border border-white/5 hover:shadow-[0_0_20px_#FFBB02] transition-all group">
+                    <div class="bg-[#16184E] w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <img src="../img/lightbulb.png" class="w-6 h-6" alt="">
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-4 group-hover:text-[#FFBB02]">Account & Safety</h3>
+                    <ul class="text-gray-400 space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white">Managing notifications</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy settings in Dagupan</a></li>
+                        <li><a href="#" class="hover:text-white">Resetting your password</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-[#03041A]">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <!-- Question -->
+                <details class="group bg-[#0C0D2A] rounded-2xl border border-white/10">
+                    <summary class="flex justify-between items-center p-6 text-white font-bold cursor-pointer list-none">
+                        <span>Is PowerGuide available outside of Dagupan City?</span>
+                        <span class="text-[#FFBB02] group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-6 pt-0 text-gray-400 text-sm border-t border-white/5">
+                        Currently, our real-time monitoring and crowdsourced reporting are optimized for Dagupan City and surrounding local municipalities. We plan to expand to the rest of Pangasinan soon.
+                    </div>
+                </details>
+
+                <details class="group bg-[#0C0D2A] rounded-2xl border border-white/10">
+                    <summary class="flex justify-between items-center p-6 text-white font-bold cursor-pointer list-none">
+                        <span>Does the battery tracker work offline?</span>
+                        <span class="text-[#FFBB02] group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-6 pt-0 text-gray-400 text-sm border-t border-white/5">
+                        Yes! The Smart Battery Tracking feature uses local device APIs to monitor levels without needing an internet connection. However, notification syncing requires a brief connection.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as Landing) -->
+    <footer class="flex flex-col bg-[#0B0C22] px-6 md:px-10 py-10 gap-10 border-t border-white/20">
+       
+            <div class="flex flex-col gap-4">
+                <div class="flex">
+                    <img class="w-10 md:w-16" src="../img/logo.png" alt="">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-white font-bold text-lg md:text-xl leading-tight">POWER<span class="text-[#FFBB02]">GUIDE</span></span>
+                        <span class="text-white/70 font-medium text-[10px] tracking-widest">SECURITY AND RELIABILITY</span>
+                        <span class="text-white/50 text-sm">Contact Support: support@powerguide.ph</span> 
+                    </div>
+                </div>
+            </div>
+ 
+    </footer>
+
+</body>
+</html>

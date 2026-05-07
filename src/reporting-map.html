@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting Map - POWERGUIDE</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-[#03041A] text-white">
+
+  <header id="mainHeader" class="flex flex-row sticky top-0 z-50 h-16 md:h-25 text-2xl items-center border-b border-gray-400 justify-between px-4 md:px-0 backdrop-blur-[2px] bg-black/50">
+        <div class="flex pl-8 items-center gap-2">
+            <a href="/src/landing.html#footer" class="flex pl-10 items-center gap-2">
+                <img class="w-10 md:w-16" src="../img/logo.png" alt="PowerGuide Logo">
+                <div class="flex flex-col justify-center items-start">
+                    <span class="text-white font-bold text-lg md:text-xl leading-tight">
+                        POWER<span class="text-[#FFBB02]">GUIDE</span>
+                    </span>
+                    <span class="text-white font-medium text-sm md:text-xs tracking-widest opacity-70 leading-none">
+                        SECURITY AND RELIABILITY
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <ul class="hidden md:flex flex-row font-bold gap-6 ml-auto text-gray-400 text-xs md:text-sm mr-10">
+            <li ><a href="/src/landing.html#footer">Back to Home</a></li>
+        </ul>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-10 px-6">
+        <h1 class="text-4xl font-black mb-6">Outage Reporting Map</h1>
+        
+        <div class="flex flex-col lg:flex-row gap-10">
+            
+            <div class="w-full lg:w-2/3 h-[500px] border-4 border-[#FFBB02] rounded-3xl overflow-hidden">
+                <iframe 
+                    width="100%" height="100%" frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30560.844374303495!2d120.32049970986708!3d16.04610738440537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391667b36f755a5%3A0x6b472e3919e13d94!2sDagupan%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1715000000000" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="w-full lg:w-1/3 bg-[#0C0D2A] p-8 rounded-3xl shadow-[0_0_20px_#FFBB02]">
+                <h2 class="text-2xl font-bold mb-6 text-[#FFBB02]">Submit Outage</h2>
+                <form action="#" method="POST" class="flex flex-col gap-4">
+                    <label class="text-sm font-medium">Street / Area Name</label>
+                    <input type="text" required class="p-3 rounded-lg bg-[#16184E] border border-gray-600 focus:outline-none">
+                    
+                    <label class="text-sm font-medium">Outage Type</label>
+                    <select class="p-3 rounded-lg bg-[#16184E] border border-gray-600">
+                        <option>Scheduled Maintenance</option>
+                        <option>Unexpected Brownout</option>
+                        <option>Voltage Fluctuation</option>
+                    </select>
+
+                    <label class="text-sm font-medium">Description</label>
+                    <textarea rows="3" class="p-3 rounded-lg bg-[#16184E] border border-gray-600"></textarea>
+
+                    <button type="submit" class="mt-4 bg-[#FFBB02] text-black font-bold py-3 rounded-lg hover:bg-[#D99A00] transition-colors">
+                        Send Report
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
