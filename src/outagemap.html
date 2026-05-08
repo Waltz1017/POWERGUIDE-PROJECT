@@ -234,9 +234,9 @@
 
                 <!-- City Stats -->
                 <div class="w-full lg:w-auto lg:flex-shrink-0">
-                    <div class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full lg:w-[424px]
+                    <div class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full lg:w-[420px]
                          h-[300px] sm:h-[380px] md:h-[450px] lg:h-[550px]
-                         flex flex-col relative">
+                         flex flex-col relative ml-4">
 
                         <!-- Header -->
                         <div class="flex flex-row border-b-2 border-[#2A2A3E] p-2 justify-between items-center">
@@ -434,21 +434,7 @@
         </main>
     </div>
 
-    <script>
-        const toggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        toggle.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-full');
-            overlay.classList.toggle('hidden');
-        });
-
-        overlay.addEventListener('click', () => {
-            sidebar.classList.add('-translate-x-full');
-            overlay.classList.add('hidden');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
