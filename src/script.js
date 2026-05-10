@@ -114,44 +114,6 @@ function closeProfile() {
     setTimeout(() => { profile.classList.add("pointer-events-none"); }, 300);
 }
 
-<<<<<<< HEAD
-function openSync() {
-    const el = document.getElementById("sync");
-    const box = document.getElementById("syncBox");
-    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
-    el.classList.add("opacity-100", "visible");
-    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
-    box.classList.add("scale-100", "translate-y-0", "opacity-100");
-}
-
-function closeSync() {
-    const el = document.getElementById("sync");
-    const box = document.getElementById("syncBox");
-    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
-    box.classList.add("scale-95", "translate-y-4", "opacity-0");
-    el.classList.remove("opacity-100", "visible");
-    el.classList.add("opacity-0", "invisible");
-    setTimeout(() => el.classList.add("pointer-events-none"), 300);
-}
-
-function openOutage() {
-    const el = document.getElementById("popup");
-    const box = document.getElementById("outageBox");
-    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
-    el.classList.add("opacity-100", "visible");
-    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
-    box.classList.add("scale-100", "translate-y-0", "opacity-100");
-}
-
-function closeOutage() {
-    const el = document.getElementById("popup");
-    const box = document.getElementById("outageBox");
-    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
-    box.classList.add("scale-95", "translate-y-4", "opacity-0");
-    el.classList.remove("opacity-100", "visible");
-    el.classList.add("opacity-0", "invisible");
-    setTimeout(() => el.classList.add("pointer-events-none"), 300);
-=======
 // ── Battery ──
 const levelEl = document.getElementById("level");
 const statusEl = document.getElementById("status");
@@ -201,5 +163,42 @@ if (levelEl && batteryRing) {
         levelEl.textContent = "N/A ❌";
         statusEl.textContent = "Try Chrome/Edge";
     }
->>>>>>> 4fc78f9d29688ae2ccfe1a161bade57ecf4ce92f
+}
+
+function openSync() {
+    const el = document.getElementById("sync");
+    const box = document.getElementById("syncBox");
+    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
+    el.classList.add("opacity-100", "visible");
+    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
+    box.classList.add("scale-100", "translate-y-0", "opacity-100");
+}
+
+function closeSync() {
+    const el = document.getElementById("sync");
+    const box = document.getElementById("syncBox");
+    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
+    box.classList.add("scale-95", "translate-y-4", "opacity-0");
+    el.classList.remove("opacity-100", "visible");
+    el.classList.add("opacity-0", "invisible");
+    setTimeout(() => el.classList.add("pointer-events-none"), 300);
+}
+
+function openOutage() {
+    const el = document.getElementById("popup");
+    const box = document.getElementById("outageBox");
+    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
+    el.classList.add("opacity-100", "visible");
+    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
+    box.classList.add("scale-100", "translate-y-0", "opacity-100");
+}
+
+function closeOutage() {
+    const el = document.getElementById("popup");
+    const box = document.getElementById("outageBox");
+    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
+    box.classList.add("scale-95", "translate-y-4", "opacity-0");
+    el.classList.remove("opacity-100", "visible");
+    el.classList.add("opacity-0", "invisible");
+    setTimeout(() => el.classList.add("pointer-events-none"), 300);
 }
