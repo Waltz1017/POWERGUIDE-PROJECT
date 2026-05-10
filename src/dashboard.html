@@ -82,7 +82,7 @@
                     <span class="text-sm font-semibold">Outage Map</span>
                 </a>
 
-                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                <a href="findhubs.html" class="group flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
                     hover:scale-[1.03] active:scale-[0.98] transform
                     transition-all duration-200 ease-in-out transform">
@@ -149,41 +149,6 @@
                 </div>
 
                 <div class="flex items-center gap-6">
-                    <!-- <button onclick="document.getElementById('sync').style.display='flex'"
-                        class="group int-btn cursor-pointer px-3 py-1.5 md:px-6 md:py-2 bg-[#BCBCBC]/25
-                        text-white rounded-full hover:bg-white/50 active:bg-white/60
-                        transition-all duration-300 ease-out transform
-                        hover:scale-105 active:scale-95 text-xs md:text-sm font-bold hover:text-black">
-
-                        <span class="flex items-center gap-2">
-                            <div class="relative h-4 w-4">
-                                default plug
-                                <img src="/img/gray-plug.svg"
-                                    class="absolute inset-0 h-4 w-4 object-contain
-                                    transition-all duration-200
-                                    group-hover:opacity-0"
-                                    alt="">
-
-                                hover plug
-                                <img src="/img/black-plug.svg"
-                                    class="absolute inset-0 h-4 w-4 object-contain
-                                    opacity-0 transition-all duration-200
-                                    group-hover:opacity-100"
-                                    alt="">
-                            </div>
-                            Station Sync
-                        </span>
-                    </button>
-
-                    <button onclick="document.getElementById('popup').style.display='flex'"
-                        class="int-btn cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#FFBB02]
-                        text-black rounded-full hover:bg-[#D99A00] active:bg-[#FFC833]
-                        transition-all duration-300 ease-out transform
-                        hover:scale-105 active:scale-95 text-xs md:text-sm font-bold">
-
-                        + Report Outage
-                    </button> -->
-
                     <div class="relative">
 
                         <!-- Bell Icon -->
@@ -355,37 +320,79 @@
                 <!-- RIGHT: Device + Guard Recommendation -->
                 <div class="flex flex-col gap-6 xl:w-80">
 
-                    <!-- This Device -->
-                    <div class="rounded-2xl bg-[#31324C]/50 flex flex-col items-center justify-between
-                                pt-14 pb-10 gap-4 min-h-[503px]">
-                        <span class="text-white text-sm font-bold">This Device</span>
+            <!-- This Device -->
+            <div class="rounded-2xl bg-[#31324C]/50 flex flex-col items-center justify-between
+                        pt-14 pb-10 gap-4 min-h-[503px]">
 
-                        <!-- Battery Ring -->
-                        <div class="relative flex items-center justify-center mt-14">
-                            <svg class="w-40 h-40 -rotate-90" viewBox="0 0 120 120">
-                                <circle cx="60" cy="60" r="50" fill="none" stroke="#1A1B3A" stroke-width="10" />
-                                <circle cx="60" cy="60" r="50" fill="none" stroke="#FFBB02" stroke-width="10"
-                                    stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="78" />
-                            </svg>
-                            <div class="absolute flex flex-col items-center">
-                                <span class="text-white text-3xl font-bold">(  )</span>
-                                <span class="text-[#B5B5B5] text-xs tracking-widest">BATTERY</span>
-                            </div>
-                        </div>
-                        <br>
-                        <!-- Stats -->
-                        <div class="flex flex-row w-full px-4 gap-3 text-xs">
-                            <div class="flex flex-col items-center bg-[#1A1B3A] rounded-xl p-3 flex-1">
-                                <span class="text-[#B5B5B5] tracking-widest">RUNTIME</span>
-                                <span class="text-white font-bold text-base mt-1">(  )</span>
-                            </div>
-                            <div class="flex flex-col items-center bg-[#1A1B3A] rounded-xl p-3 flex-1">
-                                <span class="text-[#B5B5B5] tracking-widest">STATE</span>
-                                <span class="text-[#FFBB02] font-bold text-base mt-1">(  )</span>
-                            </div>
-                        </div>
+                <span class="text-white text-sm font-bold">This Device</span>
+
+                <!-- Battery Ring -->
+                <div class="relative flex items-center justify-center mt-10">
+
+                    <svg class="w-44 h-44 -rotate-90" viewBox="0 0 120 120">
+
+                        <!-- Background Ring -->
+                        <circle cx="60" cy="60" r="50"
+                            fill="none"
+                            stroke="#1A1B3A"
+                            stroke-width="10" />
+
+                        <!-- Animated Ring -->
+                        <circle id="battery-ring"
+                            cx="60"
+                            cy="60"
+                            r="50"
+                            fill="none"
+                            stroke="#FFBB02"
+                            stroke-width="10"
+                            stroke-linecap="round"
+                            stroke-dasharray="314"
+                            stroke-dashoffset="314" />
+                    </svg>
+
+                    <!-- Center Text -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="battery-level"
+                            class="text-white text-4xl font-bold">
+                            --%
+                        </span>
+
+                        <span id="battery-label"
+                            class="text-[#B5B5B5] text-xs tracking-[0.3em] mt-1">
+                            BATTERY
+                        </span>
                     </div>
                 </div>
+
+                <!-- Stats -->
+                <div class="flex flex-row w-full px-4 gap-3 text-xs">
+
+                    <!-- Runtime -->
+                    <div class="flex flex-col items-center bg-[#1A1B3A] rounded-xl p-3 flex-1">
+                        <span class="text-[#B5B5B5] tracking-widest">
+                            RUNTIME
+                        </span>
+
+                        <span id="runtime"
+                            class="text-white font-bold text-base mt-1">
+                            Calculating...
+                        </span>
+                    </div>
+
+                    <!-- State -->
+                    <div class="flex flex-col items-center bg-[#1A1B3A] rounded-xl p-3 flex-1">
+                        <span class="text-[#B5B5B5] tracking-widest">
+                            STATE
+                        </span>
+
+                        <span id="battery-state"
+                            class="text-[#FFBB02] font-bold text-base mt-1">
+                            Detecting...
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
             </section>
 
             <!-- RECENT REPORTS -->
@@ -422,68 +429,6 @@
             </section>
         </main>
     </div>
-
-    <!-- REPORT OUTAGE
-    <div id="popup" style="display:none;" class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
-
-        Popup Box
-        <div class="relative w-full max-w-[700px]">
-
-            Close Button
-            <button onclick="document.getElementById('popup').style.display='none'"
-                class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10">
-                &times;
-            </button>
-
-            Form
-            <form
-                class="flex flex-col w-full max-h-[90vh] overflow-y-auto bg-[#1A1B33] text-white border-2 rounded-3xl p-6 md:p-10"
-                action="">
-                <span class="flex flex-col text-2xl md:text-3xl font-bold">
-                    Report an Outage
-                    <span class="text-sm font-semibold text-[#B5B5B5]">
-                        Your data helps neighbors stay prepared.
-                    </span>
-                </span>
-                <br>
-                <div class="flex flex-col">
-                    <span class="text-sm text-[#B5B5B5] font-semibold mb-2">OUTAGE TYPE</span>
-
-                    <div class="flex flex-col sm:flex-row gap-4 mb-4">
-                        <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
-                        <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
-                                    peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:border-[#FAB005]">
-                            <img src="/img/volt.svg" alt="">
-                            Total Blackout
-                        </label>
-
-                        <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
-                        <label for="fluctuation"
-                            class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
-                                    peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:border-[#FAB005]">
-                            <img src="/img/fluctuation.svg" alt="">
-                            Fluctuation
-                        </label>
-                    </div>
-
-                    <span class="text-[#B5B5B5] font-semibold text-sm mb-2">LOCATION DETAIL</span>
-
-                    <input class="w-full px-2 h-14 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%] mb-4" type="text"
-                        placeholder="e.g, Street Name, Landmark">
-
-                    <span class="mb-2">OBSERVATIONS</span>
-
-                    <textarea class="w-full h-28 md:h-32 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33] mb-4"
-                        placeholder="Describe what happened..."></textarea>
-
-                    <button type="submit"
-                        class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
-                        Submit Community Report
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>-->
 
     <!-- PROFILE SETTINGS -->
     <div id="profile"

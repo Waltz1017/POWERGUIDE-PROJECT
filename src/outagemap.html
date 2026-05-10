@@ -93,7 +93,7 @@
                 </a>
 
                 <!-- Find Hubs -->
-                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                <a href="findhubs.html" class="group flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
                     hover:scale-[1.03] active:scale-[0.98]
                     transition-all ease-in-out">
@@ -177,19 +177,34 @@
 
                 </div>
 
+                <button onclick="document.getElementById('popup').style.display='flex'"
+                    class="int-btn cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#FFBB02]
+                    text-black rounded-full hover:bg-[#D99A00] active:bg-[#FFC833]
+                    transition-all duration-300 ease-out transform
+                    hover:scale-105 active:scale-95 text-xs md:text-sm font-bold ml-24">
+
+                    + Report Outage
+                </button>
                 <!-- Right: Search + Button -->
-                <div class="flex items-center gap-3 w-full lg:w-auto mr-2">    
-                    <div class="relative w-full lg:w-80">                        
-                        <!-- Icon -->
-                        <img src="/img/search.svg"
-                            class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 opacity-70"
-                            alt="">
-                        <!-- Input -->
-                        <input
-                            class="w-full h-10 pl-10 pr-2 rounded-xl bg-[#2A2B41] border-2 border-[#696969]
-                                text-white placeholder-[#B5B5B5] focus:outline-none focus:border-[#696969]"
-                            type="text"
-                            placeholder="Search City..." />                            
+                <div class="flex items-center gap-4 mr-2">
+
+                    <div class="relative">
+
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2
+                        w-5 h-5 text-gray-400"
+                            fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+
+                            <circle cx="10" cy="10" r="6"></circle>
+                            <line x1="19" y1="20" x2="16.5" y2="16.5"></line>
+                        </svg>
+
+                        <input type="search"
+                            placeholder="Search city..."
+                            class="w-[300px] h-11 pl-10 pr-4 rounded-xl
+                            bg-white/10 border border-white/10
+                            text-sm font-medium outline-none
+                            placeholder:text-white/40">
                     </div>
                 </div>
 
@@ -369,11 +384,11 @@
             </section>
 
             <!-- Popup Overlay -->
-            <div id="popup" style="display:none;"
-                class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
+                <div id="popup" style="display:none;"
+                    class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
 
-                <!-- Popup Box -->
-                <div class="relative w-full max-w-[700px]">
+                    <!-- Popup Box -->
+                    <div class="relative w-full max-w-[700px]">
 
                     <!-- Close Button -->
                     <button onclick="document.getElementById('popup').style.display='none'"
@@ -383,8 +398,10 @@
 
                     <!-- Form -->
                     <form
-                        class="flex flex-col w-full max-h-[90vh] overflow-y-auto bg-[#1A1B33] text-white border-2 rounded-3xl p-6 md:p-10"
-                        action="">
+                          class="flex flex-col w-full max-h-[90vh] overflow-y-auto
+                          bg-[#1A1B33] text-white border-2 rounded-3xl
+                          px-6 pb-6 pt-6 md:px-10 md:pb-10 md:pt-7"
+                          action="">
                         <span class="flex flex-col text-2xl md:text-3xl font-bold">
                             Report an Outage
                             <span class="text-sm font-semibold text-[#B5B5B5]">
@@ -393,8 +410,7 @@
                         </span>
                         <br>
                         <div class="flex flex-col">
-                            <span class="text-sm text-[#B5B5B5] font-semibold">OUTAGE TYPE</span>
-                            <br>
+                            <span class="text-sm text-[#B5B5B5] font-semibold mb-2">OUTAGE TYPE</span>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
                                 <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
@@ -410,19 +426,17 @@
                                     <img src="/img/fluctuation.svg" alt="">
                                     Fluctuation
                                 </label>
-                            </div>
-                            <br>
-                            <span class="text-[#B5B5B5] font-semibold text-sm">LOCATION DETAIL</span>
-                            <br>
-                            <input class="w-full px-2 h-14 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
-                                type="text" placeholder="e.g, Street Name, Landmark">
-                            <br><br>
-                            <span>OBSERVATIONS</span>
-                            <br>
+                            </div><br>
+
+                            <span class="text-[#B5B5B5] font-semibold text-sm mb-2">LOCATION DETAIL</span>
+                            <input class="w-full px-2 h-12 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
+                                type="text" placeholder="e.g, Street Name, Landmark"><br>
+
+                            <span class="text-[#B5B5B5] font-semibold text-sm mb-2">OBSERVATIONS</span>
                             <textarea
-                                class="w-full h-28 md:h-32 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
-                                placeholder="Describe what happened..."></textarea>
-                            <br><br>
+                                class="w-full h-28 md:h-20 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
+                                placeholder="Describe what happened..."></textarea><br>
+
                             <button type="submit"
                                 class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
                                 Submit Community Report

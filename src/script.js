@@ -136,16 +136,40 @@ function closeProfile() {
     }, 300);
 }
 
-const toggle = document.getElementById('menuToggle');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
+function openSync() {
+    const el = document.getElementById("sync");
+    const box = document.getElementById("syncBox");
+    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
+    el.classList.add("opacity-100", "visible");
+    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
+    box.classList.add("scale-100", "translate-y-0", "opacity-100");
+}
 
-toggle.addEventListener('click', () => {
-    sidebar.classList.toggle('-translate-x-full');
-    overlay.classList.toggle('hidden');
-});
+function closeSync() {
+    const el = document.getElementById("sync");
+    const box = document.getElementById("syncBox");
+    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
+    box.classList.add("scale-95", "translate-y-4", "opacity-0");
+    el.classList.remove("opacity-100", "visible");
+    el.classList.add("opacity-0", "invisible");
+    setTimeout(() => el.classList.add("pointer-events-none"), 300);
+}
 
-overlay.addEventListener('click', () => {
-    sidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-});
+function openOutage() {
+    const el = document.getElementById("popup");
+    const box = document.getElementById("outageBox");
+    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
+    el.classList.add("opacity-100", "visible");
+    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
+    box.classList.add("scale-100", "translate-y-0", "opacity-100");
+}
+
+function closeOutage() {
+    const el = document.getElementById("popup");
+    const box = document.getElementById("outageBox");
+    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
+    box.classList.add("scale-95", "translate-y-4", "opacity-0");
+    el.classList.remove("opacity-100", "visible");
+    el.classList.add("opacity-0", "invisible");
+    setTimeout(() => el.classList.add("pointer-events-none"), 300);
+}
