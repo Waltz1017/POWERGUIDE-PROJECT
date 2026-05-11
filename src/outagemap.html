@@ -177,7 +177,7 @@
 
                 </div>
 
-                <button onclick="document.getElementById('popup').style.display='flex'"
+                <button onclick="openPopup()"
                     class="int-btn cursor-pointer px-3 py-1.5 md:px-4 md:py-2 bg-[#FFBB02]
                     text-black rounded-full hover:bg-[#D99A00] active:bg-[#FFC833]
                     transition-all duration-300 ease-out transform
@@ -384,14 +384,20 @@
             </section>
 
             <!-- Popup Overlay -->
-                <div id="popup" style="display:none;"
-                    class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
+                <div id="popup"
+                        class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4
+                        opacity-0 invisible pointer-events-none
+                        transition-all duration-300 ease-out">
 
                     <!-- Popup Box -->
-                    <div class="relative w-full max-w-[700px]">
+                    <div id="popupBox"
+                            class="relative w-full max-w-[700px]
+                            transform scale-95 translate-y-4 opacity-0
+                            transition-all duration-300 ease-out
+                            shadow-[0_0_20px_#FFCA41] rounded-3xl overflow-hidden">
 
                     <!-- Close Button -->
-                    <button onclick="document.getElementById('popup').style.display='none'"
+                    <button onclick="closePopup()"
                         class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10">
                         &times;
                     </button>
@@ -399,7 +405,7 @@
                     <!-- Form -->
                     <form
                           class="flex flex-col w-full max-h-[90vh] overflow-y-auto
-                          bg-[#1A1B33] text-white border-2 rounded-3xl
+                          bg-[#1A1B33] text-white rounded-3xl
                           px-6 pb-6 pt-6 md:px-10 md:pb-10 md:pt-7"
                           action="">
                         <span class="flex flex-col text-2xl md:text-3xl font-bold">

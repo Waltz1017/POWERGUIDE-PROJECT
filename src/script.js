@@ -165,40 +165,116 @@ if (levelEl && batteryRing) {
     }
 }
 
+function openPopup() {
+    const popup = document.getElementById("popup");
+    const box = document.getElementById("popupBox");
+
+    popup.classList.remove("invisible", "pointer-events-none", "opacity-0");
+    popup.classList.add("opacity-100", "visible");
+
+    requestAnimationFrame(() => {
+        box.classList.remove("scale-95", "translate-y-4", "opacity-0");
+        box.classList.add("scale-100", "translate-y-0", "opacity-100");
+    });
+}
+
+function closePopup() {
+    const popup = document.getElementById("popup");
+    const box = document.getElementById("popupBox");
+
+    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
+    box.classList.add("scale-95", "translate-y-4", "opacity-0");
+
+    popup.classList.remove("opacity-100", "visible");
+    popup.classList.add("opacity-0");
+
+    setTimeout(() => {
+        popup.classList.add("invisible", "pointer-events-none");
+    }, 300);
+}
+
 function openSync() {
-    const el = document.getElementById("sync");
+    const sync = document.getElementById("sync");
     const box = document.getElementById("syncBox");
-    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
-    el.classList.add("opacity-100", "visible");
+    sync.classList.remove("opacity-0", "invisible", "pointer-events-none");
+    sync.classList.add("opacity-100", "visible");
     box.classList.remove("scale-95", "translate-y-4", "opacity-0");
     box.classList.add("scale-100", "translate-y-0", "opacity-100");
 }
 
 function closeSync() {
-    const el = document.getElementById("sync");
+    const sync = document.getElementById("sync");
     const box = document.getElementById("syncBox");
     box.classList.remove("scale-100", "translate-y-0", "opacity-100");
     box.classList.add("scale-95", "translate-y-4", "opacity-0");
-    el.classList.remove("opacity-100", "visible");
-    el.classList.add("opacity-0", "invisible");
-    setTimeout(() => el.classList.add("pointer-events-none"), 300);
+    sync.classList.remove("opacity-100", "visible");
+    sync.classList.add("opacity-0", "invisible");
+    setTimeout(() => { sync.classList.add("pointer-events-none"); }, 300);
 }
 
-function openOutage() {
-    const el = document.getElementById("popup");
-    const box = document.getElementById("outageBox");
-    el.classList.remove("opacity-0", "invisible", "pointer-events-none");
-    el.classList.add("opacity-100", "visible");
-    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
-    box.classList.add("scale-100", "translate-y-0", "opacity-100");
+// ── Custom Dropdowns ──
+function toggleDropdown(id) {
+    const wrapper = document.getElementById(id);
+    const options = wrapper.querySelector('.select-options');
+    const arrow = wrapper.querySelector('.select-arrow');
+    const isOpen = !options.classList.contains('pointer-events-none');
+
+    // Close all dropdowns first
+    document.querySelectorAll('.custom-select').forEach(sel => {
+        sel.querySelector('.select-options').classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        sel.querySelector('.select-arrow').classList.remove('rotate-180');
+    });
+
+    if (!isOpen) {
+        options.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+        options.classList.add('opacity-100', 'scale-100');
+        arrow.classList.add('rotate-180');
+    }
 }
 
-function closeOutage() {
-    const el = document.getElementById("popup");
-    const box = document.getElementById("outageBox");
-    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
-    box.classList.add("scale-95", "translate-y-4", "opacity-0");
-    el.classList.remove("opacity-100", "visible");
-    el.classList.add("opacity-0", "invisible");
-    setTimeout(() => el.classList.add("pointer-events-none"), 300);
+// Select an option
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('select-option')) {
+        const wrapper = e.target.closest('.custom-select');
+        wrapper.querySelector('.select-label').textContent = e.target.textContent;
+        wrapper.querySelector('.select-label').classList.remove('text-white/50');
+        wrapper.querySelector('input[type="hidden"]').value = e.target.textContent;
+        wrapper.querySelector('.select-options').classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        wrapper.querySelector('.select-arrow').classList.remove('rotate-180');
+    }
+
+    // Close on outside click
+    if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select').forEach(sel => {
+            sel.querySelector('.select-options').classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+            sel.querySelector('.select-arrow').classList.remove('rotate-180');
+        });
+    }
+});
+
+const popupEl = document.getElementById('popup');
+if (popupEl) {
+    popupEl.addEventListener('click', function (e) {
+        if (!document.getElementById('popupBox').contains(e.target)) {
+            closePopup();
+        }
+    });
+}
+
+const profileEl = document.getElementById('profile');
+if (profileEl) {
+    profileEl.addEventListener('click', function (e) {
+        if (!document.getElementById('profileBox').contains(e.target)) {
+            closeProfile();
+        }
+    });
+}
+
+const syncEl = document.getElementById('sync');
+if (syncEl) {
+    syncEl.addEventListener('click', function (e) {
+        if (!document.getElementById('syncBox').contains(e.target)) {
+            closeSync();
+        }
+    });
 }
