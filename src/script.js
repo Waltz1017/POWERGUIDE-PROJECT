@@ -213,24 +213,55 @@ function closeSync() {
 }
 
 // ── Custom Dropdowns ──
-function toggleDropdown(id) {
+function toggleDropdown(id, event) {
+    event.stopPropagation(); // prevent the document listener from immediately closing it
+
     const wrapper = document.getElementById(id);
-    const options = wrapper.querySelector('.select-options');
+    const menu = wrapper.querySelector('.select-options');
     const arrow = wrapper.querySelector('.select-arrow');
-    const isOpen = !options.classList.contains('pointer-events-none');
+    const isOpen = !menu.classList.contains('pointer-events-none');
 
-    // Close all dropdowns first
-    document.querySelectorAll('.custom-select').forEach(sel => {
-        sel.querySelector('.select-options').classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-        sel.querySelector('.select-arrow').classList.remove('rotate-180');
-    });
+    // Close ALL dropdowns first
+    closeAllDropdowns();
 
+    // If it wasn't open, open it now
     if (!isOpen) {
-        options.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-        options.classList.add('opacity-100', 'scale-100');
+        menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'scale-100');
         arrow.classList.add('rotate-180');
     }
 }
+
+function closeAllDropdowns() {
+    document.querySelectorAll('.custom-select').forEach(wrapper => {
+        const menu = wrapper.querySelector('.select-options');
+        const arrow = wrapper.querySelector('.select-arrow');
+        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        menu.classList.remove('opacity-100', 'scale-100');
+        arrow.classList.remove('rotate-180');
+    });
+}
+
+// Close on outside click
+document.addEventListener('click', closeAllDropdowns);
+
+// Handle option selection via event delegation
+document.addEventListener('click', function (e) {
+    const option = e.target.closest('.select-option');
+    if (!option) return;
+
+    const wrapper = option.closest('.custom-select');
+    const label = wrapper.querySelector('.select-label');
+    const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+
+    label.textContent = option.textContent.trim();
+    label.classList.remove('text-white/50');
+    label.classList.add('text-white');
+
+    if (hiddenInput) hiddenInput.value = option.textContent.trim();
+
+    closeAllDropdowns();
+});
 
 // Select an option
 document.addEventListener('click', function (e) {
@@ -277,4 +308,11 @@ if (syncEl) {
             closeSync();
         }
     });
+}
+
+function handleBackdropClick(event) {
+    // Deselect all radio buttons
+    document.querySelectorAll('input[name="outage"]').forEach(r => r.checked = false);
+    // Optionally also close the popup:
+    // closePopup();
 }

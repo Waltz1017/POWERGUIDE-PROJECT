@@ -384,72 +384,68 @@
             </section>
 
             <!-- Popup Overlay -->
-                <div id="popup"
-                        class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4
-                        opacity-0 invisible pointer-events-none
-                        transition-all duration-300 ease-out">
+            <div id="popup"
+                    class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4
+                    opacity-0 invisible pointer-events-none
+                    transition-all duration-300 ease-out"
+                    onclick="handleBackdropClick(event)">
 
-                    <!-- Popup Box -->
-                    <div id="popupBox"
-                            class="relative w-full max-w-[700px]
-                            transform scale-95 translate-y-4 opacity-0
-                            transition-all duration-300 ease-out
-                            shadow-[0_0_20px_#FFCA41] rounded-3xl overflow-hidden">
+            <div id="popupBox"
+                    class="relative w-full max-w-[700px] ..."
+                    onclick="event.stopPropagation()">
 
                     <!-- Close Button -->
-                    <button onclick="closePopup()"
-                        class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10">
-                        &times;
-                    </button>
+                <button onclick="closePopup()"
+                    class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-[#FFBB02] z-10">
+                    &times;
+                </button>
 
                     <!-- Form -->
-                    <form
-                          class="flex flex-col w-full max-h-[90vh] overflow-y-auto
-                          bg-[#1A1B33] text-white rounded-3xl
-                          px-6 pb-6 pt-6 md:px-10 md:pb-10 md:pt-7"
-                          action="">
-                        <span class="flex flex-col text-2xl md:text-3xl font-bold">
-                            Report an Outage
-                            <span class="text-sm font-semibold text-[#B5B5B5]">
-                                Your data helps neighbors stay prepared.
-                            </span>
+                <form class="flex flex-col w-full max-h-[90vh] overflow-y-auto
+                        bg-[#1A1B33] text-white rounded-3xl
+                        px-6 pb-6 pt-6 md:px-10 md:pb-10 md:pt-7"
+                        action="">
+                    <span class="flex flex-col text-2xl md:text-3xl font-bold">
+                        Report an Outage
+                        <span class="text-sm font-semibold text-[#B5B5B5]">
+                            Your data helps neighbors stay prepared.
                         </span>
-                        <br>
-                        <div class="flex flex-col">
-                            <span class="text-sm text-[#B5B5B5] font-semibold mb-2">OUTAGE TYPE</span>
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
-                                <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
-                                    peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:border-[#FAB005]">
-                                    <img src="/img/volt.svg" alt="">
-                                    Total Blackout
-                                </label>
+                    </span><br>
 
-                                <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
-                                <label for="fluctuation"
-                                    class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
-                                    peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:border-[#FAB005]">
-                                    <img src="/img/fluctuation.svg" alt="">
-                                    Fluctuation
-                                </label>
-                            </div><br>
+                    <div class="flex flex-col">
+                        <span class="text-sm text-[#B5B5B5] font-semibold mb-2">OUTAGE TYPE</span>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
+                            <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                                peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:border-[#FAB005]">
+                                <img src="/img/volt.svg" alt="">
+                                Total Blackout
+                            </label>
 
-                            <span class="text-[#B5B5B5] font-semibold text-sm mb-2">LOCATION DETAIL</span>
-                            <input class="w-full px-2 h-12 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
-                                type="text" placeholder="e.g, Street Name, Landmark"><br>
+                            <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
+                            <label for="fluctuation"
+                                class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                                peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:border-[#FAB005]">
+                                <img src="/img/fluctuation.svg" alt="">
+                                Fluctuation
+                            </label>
+                        </div><br>
 
-                            <span class="text-[#B5B5B5] font-semibold text-sm mb-2">OBSERVATIONS</span>
-                            <textarea
-                                class="w-full h-28 md:h-20 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
-                                placeholder="Describe what happened..."></textarea><br>
+                        <span class="text-[#B5B5B5] font-semibold text-sm mb-2">LOCATION DETAIL</span>
+                        <input class="w-full px-2 h-12 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
+                            type="text" placeholder="e.g, Street Name, Landmark"><br>
 
-                            <button type="submit"
-                                class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
-                                Submit Community Report
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                        <span class="text-[#B5B5B5] font-semibold text-sm mb-2">OBSERVATIONS</span>
+                        <textarea
+                            class="w-full h-28 md:h-20 border-2 p-2 border-[#B5B5B5]/[50%] rounded-2xl bg-[#1A1B33]"
+                            placeholder="Describe what happened..."></textarea><br>
+
+                        <button type="submit"
+                            class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
+                            Submit Community Report
+                        </button>
+                    </div>
+                </form>
             </div>
         </main>
     </div>
