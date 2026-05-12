@@ -40,17 +40,20 @@
         <div class="flex flex-col justify-center mt-8">
             <span class="text-white font-semibold">Email</span>
             <input type="email" placeholder="johndoe@gmail.com"
-                        class="w-80 h-12 mt-1 mb-8 p-2 font-thin text-white bg-transparent
-                        border border-gray-300 rounded-md text-base
-                        focus:outline-none focus:border-[#FFBB02]">
+                        class="w-80 h-12 pl-4 pr-4 rounded-xl
+                        border border-white/70
+                        text-sm font-medium text-white
+                        outline-none placeholder:text-white/40
+                        focus:border-[#FFBB02] mt-1">
 
             <!-- Password section -->
             <span class="text-white font-semibold mt-8">Password</span>
                 <div style="position: relative; width: 20rem; margin-bottom: 0.5rem;">
                     <input type="password" placeholder="********" id="password"
-                                class="w-full h-12 p-3 pr-12 mt-1 text-white bg-transparent
-                                border border-gray-300 rounded-md text-base
-                                focus:outline-none focus:border-[#FFBB02]">
+                                class="w-full h-12 pl-4 pr-4 mt-1 text-white bg-transparent
+                                border border-white/70 rounded-xl text-sm
+                                font-medium text-white
+                                outline-none placeholder:text-white/40 focus:border-[#FFBB02] mt-1">
                     <button type="button" onclick="togglePassword()" class="cursor-pointer" onmouseover="this.style.color='#FFBB02'"
                                                                                             onmouseout="this.style.color='#9ca3af'"
                         style="position: absolute; right: 0.75rem; top: 58%; transform: translateY(-50%); color: #9ca3af;">

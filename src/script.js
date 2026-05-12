@@ -135,21 +135,17 @@ if (levelEl && batteryRing) {
                 if (battery.charging) {
                     statusEl.textContent = "Charging ⚡";
                     warningDismissed = false;
-                    warningEl.classList.add("hidden");
-                    warningEl.classList.remove("flex");
                     batteryRing.style.stroke = "#FFBB02";
                 } else {
                     statusEl.textContent = "Not Charging";
                     if (level <= 40) {
                         if (!warningDismissed) {
-                            warningEl.classList.remove("hidden");
-                            warningEl.classList.add("flex");
+                            openBatteryWarning(); // ← replace the two classList lines with this
                         }
                         batteryRing.style.stroke = "#EF4444";
                     } else {
                         warningDismissed = false;
-                        warningEl.classList.add("hidden");
-                        warningEl.classList.remove("flex");
+                        closeBatteryWarning();
                         batteryRing.style.stroke = "#FFBB02";
                     }
                 }
@@ -163,6 +159,25 @@ if (levelEl && batteryRing) {
         levelEl.textContent = "N/A ❌";
         statusEl.textContent = "Try Chrome/Edge";
     }
+}
+
+function openBatteryWarning() {
+    const warning = document.getElementById("battery-warning");
+    const box = document.getElementById("batteryBox");
+    warning.classList.remove("opacity-0", "invisible", "pointer-events-none");
+    warning.classList.add("opacity-100", "visible");
+    box.classList.remove("scale-95", "translate-y-4", "opacity-0");
+    box.classList.add("scale-100", "translate-y-0", "opacity-100");
+}
+
+function closeBatteryWarning() {
+    const warning = document.getElementById("battery-warning");
+    const box = document.getElementById("batteryBox");
+    box.classList.remove("scale-100", "translate-y-0", "opacity-100");
+    box.classList.add("scale-95", "translate-y-4", "opacity-0");
+    warning.classList.remove("opacity-100", "visible");
+    warning.classList.add("opacity-0", "invisible");
+    setTimeout(() => { warning.classList.add("pointer-events-none"); }, 300);
 }
 
 function openPopup() {
@@ -310,9 +325,10 @@ if (syncEl) {
     });
 }
 
-function handleBackdropClick(event) {
-    // Deselect all radio buttons
-    document.querySelectorAll('input[name="outage"]').forEach(r => r.checked = false);
-    // Optionally also close the popup:
-    // closePopup();
-}
+document.getElementById('popupBox').addEventListener('click', function (e) {
+    const outageOptions = document.getElementById('outageOptions');
+
+    if (!outageOptions.contains(e.target)) {
+        document.querySelectorAll('input[name="outage"]').forEach(r => r.checked = false);
+    }
+});

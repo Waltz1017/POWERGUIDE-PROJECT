@@ -44,18 +44,22 @@
       <div class="mb-3">
         <span class="block text-sm text-white font-semibold mt-4 mb-1">Email</span>
         <input type="email" placeholder="johndoe@gmail.com"
-          class="w-80 h-10 mt-1 mb-1 p-2 text-sm font-thin text-white bg-transparent
-                        border border-gray-300 rounded-md
-                        focus:outline-none focus:border-[#FFBB02]">
+                        class="w-80 h-10 pl-4 pr-4 rounded-xl
+                        border border-white/70
+                        text-sm font-medium text-white
+                        outline-none placeholder:text-white/40
+                        focus:border-[#FFBB02] mt-1">
       </div>
 
       <!-- Name -->
       <div class="mb-3">
         <span class="block text-sm text-white font-semibold mb-1">Full Name</span>
-        <input type="text" placeholder="John C. Doe"
-          class="w-80 h-10 mt-1 mb-1 p-2 text-sm font-thin text-white bg-transparent
-                        border border-gray-300 rounded-md
-                        focus:outline-none focus:border-[#FFBB02]">
+        <input type="email" placeholder="John C. Doe"
+                        class="w-80 h-10 pl-4 pr-4 rounded-xl
+                        border border-white/70
+                        text-sm font-medium text-white
+                        outline-none placeholder:text-white/40
+                        focus:border-[#FFBB02] mt-1">
       </div>
 
       <!-- Contact -->
@@ -65,9 +69,11 @@
           maxlength="11"
           inputmode="numeric"
           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-          class="w-80 h-10 mt-1 mb-1 p-2 text-sm font-thin text-white bg-transparent
-                        border border-gray-300 rounded-md
-                        focus:outline-none focus:border-[#FFBB02]">
+          class="w-80 h-10 pl-4 pr-4 rounded-xl
+                        border border-white/70
+                        text-sm font-medium text-white
+                        outline-none placeholder:text-white/40
+                        focus:border-[#FFBB02] mt-1">
       </div>
 
       <!-- Password -->
@@ -75,13 +81,15 @@
         <span class="block text-sm text-white font-semibold mb-1">Password</span>
 
         <input type="password" id="password" placeholder="********"
-          class="w-80 h-10 mt-1 mb-1 p-2 text-sm font-thin text-white bg-transparent
-                        border border-gray-300 rounded-md
-                        focus:outline-none focus:border-[#FFBB02]">
+          class="w-80 h-10 pl-4 pr-4 rounded-xl
+                        border border-white/70
+                        text-sm font-medium text-white
+                        outline-none placeholder:text-white/40
+                        focus:border-[#FFBB02] mt-1">
 
         <button type="button" onclick="togglePassword()" class="cursor-pointer" onmouseover="this.style.color='#FFBB02'"
                                                                                             onmouseout="this.style.color='#9ca3af'"
-                        style="position: absolute; right: 0.75rem; top: 65%; transform: translateY(-50%); color: #9ca3af;">
+                        style="position: absolute; right: 0.75rem; top: 70%; transform: translateY(-50%); color: #9ca3af;">
                         <i id="eyeIcon" class="fas fa-eye text-lg"></i>
                     </button>
       </div>

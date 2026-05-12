@@ -112,7 +112,7 @@
                 <span class="text-xs font-bold tracking-widest text-white text-left px-4 pt-4 mb-2 mt-2">COMMUNITY</span>
 
                 <!-- Reports -->
-                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                <a href="reports.html" class="group flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
                     hover:scale-[1.03] active:scale-[0.98]
                     transition-all ease-in-out">
@@ -200,7 +200,7 @@
                         </svg>
 
                         <input type="search"
-                            placeholder="Search city..."
+                            placeholder="Search barangay..."
                             class="w-[300px] h-11 pl-10 pr-4 rounded-xl
                             bg-white/10 border border-white/10
                             text-sm font-medium outline-none
@@ -249,7 +249,7 @@
 
                 <!-- City Stats -->
                 <div class="w-full lg:w-auto lg:flex-shrink-0">
-                    <div class="bg-[#31324C] p-3 md:p-5 rounded-2xl w-full lg:w-[420px]
+                    <div class="bg-[#31324C]/50 p-3 md:p-5 rounded-2xl w-full lg:w-[420px]
                          h-[300px] sm:h-[380px] md:h-[450px] lg:h-[550px]
                          flex flex-col relative ml-4">
 
@@ -391,7 +391,7 @@
                     onclick="handleBackdropClick(event)">
 
             <div id="popupBox"
-                    class="relative w-full max-w-[700px] ..."
+                    class="relative w-full max-w-[700px] shadow-[0_0_20px_#FFCA41] rounded-[20px]"
                     onclick="event.stopPropagation()">
 
                     <!-- Close Button -->
@@ -412,24 +412,23 @@
                         </span>
                     </span><br>
 
-                    <div class="flex flex-col">
-                        <span class="text-sm text-[#B5B5B5] font-semibold mb-2">OUTAGE TYPE</span>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
-                            <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
-                                peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:border-[#FAB005]">
-                                <img src="/img/volt.svg" alt="">
-                                Total Blackout
-                            </label>
+                    <span class="text-[#B5B5B5] font-semibold text-sm mb-2">OUTAGE TYPE</span>
+                    <div class="flex flex-col sm:flex-row gap-4" id="outageOptions">
+                        <input type="radio" name="outage" id="blackout" class="hidden peer/blackout">
+                        <label for="blackout" class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                            peer-checked/blackout:bg-[#FFBB0240]/[25%] peer-checked/blackout:border-[#FAB005]">
+                            <img src="/img/volt.svg" alt="">
+                            Total Blackout
+                        </label>
 
-                            <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
-                            <label for="fluctuation"
-                                class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
-                                peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:border-[#FAB005]">
-                                <img src="/img/fluctuation.svg" alt="">
-                                Fluctuation
-                            </label>
-                        </div><br>
+                        <input type="radio" name="outage" id="fluctuation" class="hidden peer/fluctuation">
+                        <label for="fluctuation"
+                            class="flex flex-col text-center rounded-2xl items-center justify-center cursor-pointer text-white w-full sm:w-72 h-24 md:h-32 border-2 border-[#B5B5B5]
+                            peer-checked/fluctuation:bg-[#FFBB0240]/[25%] peer-checked/fluctuation:border-[#FAB005]">
+                            <img src="/img/fluctuation.svg" alt="">
+                            Fluctuation
+                        </label>
+                    </div><br>
 
                         <span class="text-[#B5B5B5] font-semibold text-sm mb-2">LOCATION DETAIL</span>
                         <input class="w-full px-2 h-12 bg-[#1A1B33] border-2 rounded-2xl border-[#B5B5B5]/[50%]"
@@ -441,7 +440,12 @@
                             placeholder="Describe what happened..."></textarea><br>
 
                         <button type="submit"
-                            class="flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center justify-center">
+                            class="int-btn flex bg-[#FFBB02] text-black font-bold w-full rounded-full h-10 items-center
+                            justify-center
+                            cursor-pointer
+                            transition-all duration-300 ease-out transform
+                            hover:bg-[#D99A00] active:bg-[#FFC833]
+                            hover:scale-105 active:scale-95 text-sm">
                             Submit Community Report
                         </button>
                     </div>
@@ -450,6 +454,30 @@
         </main>
     </div>
 
+    <div class="hidden">
+        <span id="level"></span>
+        <span id="status"></span>
+
+        <svg>
+            <circle id="battery-ring"></circle>
+        </svg>
+    </div>
+    <!-- Low Battery Warning Toast -->
+    <div id="battery-warning"
+        class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4
+        opacity-0 invisible pointer-events-none transition-opacity duration-300">
+        <div id="batteryBox"
+            class="bg-[#1A1B33] border-2 border-red-600 rounded-3xl p-8 max-w-sm w-full flex flex-col items-center gap-4 text-center
+            scale-95 translate-y-4 opacity-0 transition-all duration-300 ease-out">
+            <span class="text-red-500 text-5xl">⚠️</span>
+            <h2 class="text-white text-xl font-bold">Battery Low!</h2>
+            <p class="text-[#B5B5B5] text-sm">Please charge your device as soon as possible to avoid losing power.</p>
+            <button onclick="closeBatteryWarning()"
+                class="int-btn mt-2 px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition-all duration-200">
+                Got it
+            </button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 

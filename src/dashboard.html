@@ -93,7 +93,7 @@
                 <span
                     class="text-xs font-bold tracking-widest text-white text-left px-4 pt-4 mb-2 mt-2">COMMUNITY</span>
 
-                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                <a href="reports.html" class="group flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
                     hover:scale-[1.03] active:scale-[0.98] transform
                     transition-all duration-200 ease-in-out transform">
@@ -218,7 +218,7 @@
             <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-8 px-4 lg:px-8">
                 <!-- Voltage -->
                 <div
-                    class="card-hover glow-voltage bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
+                    class="card-hover glow-voltage bg-[#31324C]/50 rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
                         <div class="bg-[#1A1B3A] p-2 rounded-xl">
                             <img src="/img/voltage.png" alt="voltage" class="h-8 w-8 ">
@@ -236,7 +236,7 @@
 
                 <!-- Avg Uptime -->
                 <div
-                    class="card-hover glow-uptime bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
+                    class="card-hover glow-uptime bg-[#31324C]/50 rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
                         <div class="bg-[#1A1B3A] p-2 rounded-2xl">
                             <img src="/img/avguptime.png" alt="uptime" class="h-8 w-8">
@@ -254,7 +254,7 @@
 
                 <!-- Local Reports -->
                 <div
-                    class="card-hover glow-reports bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
+                    class="card-hover glow-reports bg-[#31324C]/50 rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
                         <div class="bg-[#1A1B3A] p-1 py-2 rounded-2xl">
                             <img src="/img/localreports-Picsart-BackgroundRemover.png" alt="reports" class="h-8 w-10">
@@ -272,7 +272,7 @@
 
                 <!-- Readiness -->
                 <div
-                    class="card-hover glow-readiness bg-[#0D0E2A] rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
+                    class="card-hover glow-readiness bg-[#31324C]/50 rounded-2xl p-5 flex flex-col gap-4 min-h-[170px] w-full cursor-pointer">
                     <div class="flex justify-between items-start">
                         <div class="bg-[#1A1B3A] p-2 rounded-2xl">
                             <img src="/img/battery.svg" alt="battery" class="h-8 w-8">
@@ -296,7 +296,7 @@
 
                     <!-- Map Card -->
                     <div class="rounded-2xl overflow-hidden">
-                        <div class="bg-[#31324C]/75 flex flex-row justify-between items-center p-6">
+                        <div class="bg-[#31324C]/50 flex flex-row justify-between items-center p-6">
                             <div class="flex flex-row items-center gap-3">
                                 <img class="w-7 h-7" src="/img/localactivitymap-Picsart-BackgroundRemover.webp" alt="">
                                 <span class="font-bold text-sm lg:text-base">Local Activity Map</span>
@@ -352,14 +352,15 @@
 
             <!-- Low Battery Warning Toast -->
             <div id="battery-warning"
-                class="hidden fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
-                <div
-                    class="bg-[#1A1B33] border-2 border-red-600 rounded-3xl p-8 max-w-sm w-full flex flex-col items-center gap-4 text-center">
+                class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4
+                opacity-0 invisible pointer-events-none transition-opacity duration-300">
+                <div id="batteryBox"
+                    class="bg-[#1A1B33] border-2 border-red-600 rounded-3xl p-8 max-w-sm w-full flex flex-col items-center gap-4 text-center
+                    scale-95 translate-y-4 opacity-0 transition-all duration-300 ease-out">
                     <span class="text-red-500 text-5xl">⚠️</span>
                     <h2 class="text-white text-xl font-bold">Battery Low!</h2>
-                    <p class="text-[#B5B5B5] text-sm">Please charge your device as soon as possible to avoid losing
-                        power.</p>
-                    <button onclick="document.getElementById('battery-warning').classList.add('hidden')"
+                    <p class="text-[#B5B5B5] text-sm">Please charge your device as soon as possible to avoid losing power.</p>
+                    <button onclick="closeBatteryWarning()"
                         class="int-btn mt-2 px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition-all duration-200">
                         Got it
                     </button>

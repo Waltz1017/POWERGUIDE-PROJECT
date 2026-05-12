@@ -116,7 +116,7 @@
                 <span class="text-xs font-bold tracking-widest text-white text-left px-4 pt-4 mb-2 mt-2">COMMUNITY</span>
 
                 <!-- Reports -->
-                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                <a href="reports.html" class="group flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
                     hover:scale-[1.03] active:scale-[0.98]
                     transition-all ease-in-out">
@@ -201,7 +201,7 @@
                         </svg>
 
                         <input type="search"
-                            placeholder="Search by district..."
+                            placeholder="Search barangay..."
                             class="w-[300px] h-11 pl-10 pr-4 rounded-xl
                             bg-white/10 border border-white/10
                             text-sm font-medium outline-none
@@ -257,7 +257,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 
                             <!-- Card 1: SM Center Dagupan -->
-                            <div class="bg-[#0F1020] rounded-2xl p-3.5 flex flex-col gap-2.5 border border-white/5 mr-4 w-[360px]">
+                            <div class="bg-[#31324C]/50 rounded-2xl p-3.5 flex flex-col gap-2.5 border border-white/5 mr-4 w-[360px]">
                                 <div class="flex justify-between items-start">
                                     <div class="w-12 h-12 rounded-2xl bg-green-500/15 flex items-center justify-center">
                                         <img src="/img/chargingstation.svg" class="w-8 h-8" alt="">
@@ -282,7 +282,7 @@
                             </div>
 
                             <!-- Card 2: HQ Cafe -->
-                            <div class="bg-[#0F1020] rounded-2xl p-3.5 flex flex-col gap-2.5 border border-white/5 w-[360px]">
+                            <div class="bg-[#31324C]/50 rounded-2xl p-3.5 flex flex-col gap-2.5 border border-white/5 w-[360px]">
                                 <div class="flex justify-between items-start">
                                     <div class="w-12 h-12 rounded-2xl bg-yellow-500/15 flex items-center justify-center">
                                         <img src="/img/laptop.svg" class="w-8 h-8" alt="">
@@ -307,7 +307,7 @@
                             </div>
 
                             <!-- Card 3: Aral Zone -->
-                            <div class="bg-[#0F1020] rounded-2xl p-3.5 flex flex-col gap-2.5 border border-white/5 mt-4 w-[360px]">
+                            <div class="bg-[#31324C]/50 rounded-2xl p-3.5 flex flex-col gap-2.5 border border-white/5 mt-4 w-[360px]">
                                 <div class="flex justify-between items-start">
                                     <div class="w-12 h-12 rounded-2xl bg-white/8 flex items-center justify-center">
                                         <img src="/img/book.svg" class="w-8 h-8 opacity-50" alt="">
@@ -334,9 +334,9 @@
                     </div>
 
                     <!-- RIGHT: Proximity Map -->
-                    <div class="bg-[#0F1020] rounded-3xl border border-white/5 p-4 flex flex-col w-[370px] h-[500px]" 
+                    <div class="bg-[#31324C]/50 rounded-3xl border border-white/5 p-4 flex flex-col w-[370px] h-[500px]" 
                     hover:bg-[#D99A00] active:bg-[#FFC833]>
-                        <div class="flex justify-between items-center">
+                        <div class="flex justify-between items-center px-4 py-2">
                             <h2 class="font-bold text-white">Proximity Map</h2>
                             <span class="text-green-400 text-xs font-semibold">LIVE VIEW</span>
                         </div>
@@ -344,8 +344,8 @@
                         <!-- Map Area -->
                         <div class="flex-1 rounded-2xl mt-4 overflow-hidden border border-white/5 min-h-[190px]"></div>
 
-                        <button class="int-btn mt-4 h-12 rounded-2xl bg-[#FFBB02] transition-colors font-bold text-sm text-white
-                    text-black rounded-full hover:bg-[#D99A00] active:bg-[#FFC833] hover:scale-[1.03] active:scale-[0.98]">
+                        <button class="int-btn mt-4 h-12 rounded-2xl bg-[#FFBB02] transition-all font-bold text-sm
+                            text-black hover:bg-[#D99A00] active:bg-[#FFC833] hover:scale-[1.03] active:scale-[0.98]">
                             Expand Full Screen Map
                         </button>
                     </div>
@@ -524,15 +524,14 @@
                     <br>
 
                     <div class="flex flex-col items-center gap-4">
-                        <button type="submit"
-                            class="int-btn flex bg-[#FFBB02] text-black font-bold w-64 rounded-full h-10
-                            items-center justify-center hover:scale-[1.03] active:scale-[0.98] hover:bg-[#D99A00] active:bg-[#FFC833]">
+                        <button class="int-btn flex bg-[#FFBB02] text-black font-bold w-64 rounded-full h-10
+                            items-center justify-center transition-transform hover:scale-[1.03] active:scale-[0.98] hover:bg-[#D99A00] active:bg-[#FFC833]">
                             Use my Location
                         </button>
 
                         <button type="submit"
                             class="int-btn flex bg-[#FFBB02] text-black font-bold w-64 rounded-full h-10
-                            items-center justify-center hover:scale-[1.03] active:scale-[0.98] hover:bg-[#D99A00] active:bg-[#FFC833]">
+                            items-center justify-center transition-transform hover:scale-[1.03] active:scale-[0.98] hover:bg-[#D99A00] active:bg-[#FFC833]">
                             Create Station
                         </button>
                     </div>
@@ -541,6 +540,30 @@
         </div>
     </div>
 
+    <div class="hidden">
+        <span id="level"></span>
+        <span id="status"></span>
+
+        <svg>
+            <circle id="battery-ring"></circle>
+        </svg>
+    </div>
+    <!-- Low Battery Warning Toast -->
+    <div id="battery-warning"
+        class="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4
+        opacity-0 invisible pointer-events-none transition-opacity duration-300">
+        <div id="batteryBox"
+            class="bg-[#1A1B33] border-2 border-red-600 rounded-3xl p-8 max-w-sm w-full flex flex-col items-center gap-4 text-center
+            scale-95 translate-y-4 opacity-0 transition-all duration-300 ease-out">
+            <span class="text-red-500 text-5xl">⚠️</span>
+            <h2 class="text-white text-xl font-bold">Battery Low!</h2>
+            <p class="text-[#B5B5B5] text-sm">Please charge your device as soon as possible to avoid losing power.</p>
+            <button onclick="closeBatteryWarning()"
+                class="int-btn mt-2 px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition-all duration-200">
+                Got it
+            </button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 
