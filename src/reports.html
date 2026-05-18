@@ -132,7 +132,7 @@
                 </a>
 
                 <!-- Settings -->
-                <a href="" class="group flex flex-row items-center gap-3 px-4 h-11
+                <a href="settings.html" class="group flex flex-row items-center gap-3 px-4 h-11
                     rounded-lg hover:bg-[#FEBB02] hover:text-black duration-200
                     transition-all ease-in-out">
 
@@ -147,6 +147,18 @@
                 </a>
 
             </div>
+
+            <div class="flex flex-col text-left mt-auto mb-8 mx-2 p-6 rounded-lg bg-[#31324C]/50">
+
+                <span class="text-[#FEBB02] text-base font-bold mb-1">
+                    PRO TIP
+                </span>
+
+                <span class="text-white/50 text-sm font-normal">
+                    Lower screen brightness to 40% to save 15min of runtime.
+                </span>
+
+            </div>
         </nav>
 
         <!-- MAIN -->
@@ -155,11 +167,10 @@
                 <header class="bg-[#1C1D30] flex flex-wrap items-center justify-between gap-4 px-3 lg:px-5 py-4 lg:h-28 mb-8">
 
                     <!-- Title -->
-                    <div class="flex flex-col justify-center px-4 lg:px-10 -ml-4">
+                    <div class="flex flex-col justify-center pr-6 ml-4">
                         <span class="font-bold text-base lg:text-2xl">
                             Community Reports
                         </span>
-
                         <span class="text-xs lg:text-sm text-[#B5B5B5]">
                             VERIFIED INCIDENT FEED
                         </span>
@@ -228,142 +239,122 @@
 
                 <!-- FILTERS -->
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5 px-6">
-                    <h2 class="font-bold text-lg md:text-2xl">
+                    <h2 class="font-bold text-lg md:text-xl">
                         Recent Activity
                     </h2>
 
                     <div class="flex gap-3 text-sm font-semibold">
-                        <button class="flex bg-[#B5B5B51A]/[10%] w-18 text-xs items-center rounded-md text-white/70 p-2 font-bold justify-center">ALL</button>
-                        <button class="flex bg-[#FF3C2F1A]/[10%] w-18 text-xs items-center rounded-md text-[#FF2E1F] p-2 font-bold justify-center">CRITICAL</button>
-                        <button class="flex bg-[#FFBB021A]/[10%] w-18 text-xs items-center rounded-md text-[#FFBB02] p-2 font-bold justify-center">WARNING</button>
-                        <button class="flex bg-[#22FF221A]/[10%] w-18 text-xs items-center rounded-md text-[#49B149] p-2 font-bold justify-center">STABLE</button>
+
+                        <button class="filter-btn flex bg-[#B5B5B51A]/[10%] hover:bg-[#B5B5B51A]/[18%]
+                            w-18 text-xs items-center rounded-lg text-white/70 p-2 font-bold justify-center"
+                            style="transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out; will-change: transform;"
+                            onmouseenter="this.style.transform='scale(1.06)'"
+                            onmouseleave="this.style.transform='scale(1)'"
+                            onmousedown="this.style.transform='scale(0.96)'"
+                            onmouseup="this.style.transform='scale(1.06)'">
+                            ALL
+                        </button>
+
+                        <button class="filter-btn flex bg-[#FF3C2F1A]/[10%] hover:bg-[#FF3C2F1A]/[18%]
+                            w-18 text-xs items-center rounded-lg text-[#FF2E1F] p-2 font-bold justify-center"
+                            style="transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out; will-change: transform;"
+                            onmouseenter="this.style.transform='scale(1.06)'"
+                            onmouseleave="this.style.transform='scale(1)'"
+                            onmousedown="this.style.transform='scale(0.96)'"
+                            onmouseup="this.style.transform='scale(1.06)'">
+                            CRITICAL
+                        </button>
+
+                        <button class="filter-btn flex bg-[#FFBB021A]/[10%] hover:bg-[#FFBB021A]/[18%]
+                            w-18 text-xs items-center rounded-lg text-[#FFBB02] p-2 font-bold justify-center"
+                            style="transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out; will-change: transform;"
+                            onmouseenter="this.style.transform='scale(1.06)'"
+                            onmouseleave="this.style.transform='scale(1)'"
+                            onmousedown="this.style.transform='scale(0.96)'"
+                            onmouseup="this.style.transform='scale(1.06)'">
+                            WARNING
+                        </button>
+
+                        <button class="filter-btn flex bg-[#22FF221A]/[10%] hover:bg-[#22FF221A]/[18%]
+                            w-18 text-xs items-center rounded-lg text-[#49B149] p-2 font-bold justify-center"
+                            style="transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out; will-change: transform;"
+                            onmouseenter="this.style.transform='scale(1.06)'"
+                            onmouseleave="this.style.transform='scale(1)'"
+                            onmousedown="this.style.transform='scale(0.96)'"
+                            onmouseup="this.style.transform='scale(1.06)'">
+                            STABLE
+                        </button>
+
                     </div>
                 </div>
 
-                <!-- REPORTS -->
-                <div class="space-y-6 pb-10 px-6">
+                <!-- Activity 1 -->
+                <div class="flex flex-col gap-4 ml-6 mr-6">
 
-                    <!-- REPORT 1 -->
-                    <div
-                        class="bg-[#31324C]/50 rounded-3xl p-6 flex flex-col lg:flex-row gap-6 lg:items-center justify-between border border-white/5 hover:border-yellow-400/20 transition">
+                    <!-- Activity 1 -->
+                    <div class="flex flex-row items-center gap-4 bg-[#0D0E2A] rounded-xl px-5 py-4 relative h-28">
 
-                        <div class="flex gap-5">
+                        <span class="absolute top-4 right-5 text-[#B5B5B5] text-xs">
+                            (  )
+                        </span>
 
-                            <div class="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" class="w-8 h-8">
-                                    <path d="M13 2L3 14h7v8l11-14h-8z" />
-                                </svg>
-                            </div>
-
-                            <div>
-                                <h3 class="text-3xl font-bold mb-2">Total Blackout: Banaag</h3>
-                                <p class="text-gray-300 leading-relaxed mb-5">
-                                    Whole street is dark. Streetlights are also offline. Verified by 4 nearby PowerGuard
-                                    devices.
-                                </p>
-
-                                <div class="flex flex-wrap gap-5 items-center text-sm">
-                                    <span class="text-[#FFBB02] font-bold uppercase">
-                                        Verified Incident
-                                    </span>
-
-                                    <span class="text-gray-400 flex items-center gap-2">
-                                        👥 24 peers affected
-                                    </span>
-                                </div>
-                            </div>
-
+                        <div class="w-16 lg:w-10 h-16 lg:h-10 rounded-md bg-[#EB3225]/40 flex items-center justify-center shrink-0">
+                            <img src="/img/volt.png" class="w-8 h-8 lg:w-8 lg:h-8"></img>
                         </div>
 
-                        <div class="flex flex-col items-end gap-4 min-w-[180px]">
-                            <p class="text-sm text-gray-400 whitespace-nowrap">12 MINUTES AGO</p>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-white font-bold text-sm lg:text-base">
+                                (  )
+                            </span>
 
-                            <div class="flex gap-3">
-                                <button class="bg-[#262D58] px-5 py-2 rounded-lg text-sm hover:bg-[#31396d] transition">
-                                    Details
-                                </button>
-
-                                <button
-                                    class="bg-[#FFBB02] text-black font-semibold px-5 py-2 rounded-lg text-sm hover:scale-[1.02] transition">
-                                    I Have This Too
-                                </button>
-                            </div>
+                            <span class="text-[#B5B5B5] text-xs lg:text-sm">
+                                (  )
+                            </span>
                         </div>
 
                     </div>
 
-                    <!-- REPORT 2 -->
-                    <div
-                        class="bg-[#31324C]/50 rounded-3xl p-6 flex flex-col lg:flex-row gap-6 lg:items-center justify-between border border-white/5 hover:border-yellow-400/20 transition">
+                    <!-- Activity 2 -->
+                    <div class="flex flex-row items-center gap-4 bg-[#0D0E2A] rounded-xl px-5 py-4 relative h-28">
 
-                        <div class="flex gap-5">
+                        <span class="absolute top-4 right-5 text-[#B5B5B5] text-xs">
+                            (  )
+                        </span>
 
-                            <div
-                                class="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="#FFBB02" viewBox="0 0 24 24"
-                                    class="w-8 h-8">
-                                    <path d="M12 2 1 21h22L12 2Zm1 15h-2v2h2v-2Zm0-8h-2v6h2V9Z" />
-                                </svg>
-                            </div>
-
-                            <div>
-                                <h3 class="text-3xl font-bold mb-2">Voltage Surge Warning</h3>
-                                <p class="text-gray-300 leading-relaxed mb-5">
-                                    High voltage fluctuations in Bonuan Binloc detected. Appliances behaving abnormally.
-                                    Technical team notified.
-                                </p>
-
-                                <div class="flex gap-5 items-center text-sm">
-                                    <span class="text-gray-400 uppercase flex items-center gap-2">
-                                        ⏺ Pending Inspection
-                                    </span>
-                                </div>
-                            </div>
-
+                        <div class="w-16 lg:w-10 h-16 lg:h-10 rounded-md bg-[#FFBB02]/20 flex items-center justify-center shrink-0">
+                            <img src="/img/warning.svg" class="w-8 h-8 lg:w-6 lg:h-6"></img>
                         </div>
 
-                        <div class="flex flex-col items-end gap-4 min-w-[180px]">
-                            <p class="text-sm text-gray-400 whitespace-nowrap">1 HOUR AGO</p>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-white font-bold text-sm lg:text-base">
+                                (  )
+                            </span>
 
-                            <button class="bg-[#262D58] px-5 py-2 rounded-lg text-sm hover:bg-[#31396d] transition">
-                                Details
-                            </button>
+                            <span class="text-[#B5B5B5] text-xs lg:text-sm">
+                                (  )
+                            </span>
                         </div>
 
                     </div>
 
-                    <!-- REPORT 3 -->
-                    <div
-                        class="bg-[#31324C]/50 rounded-3xl p-6 flex flex-col lg:flex-row gap-6 lg:items-center justify-between border border-white/5 hover:border-green-400/20 transition opacity-90">
+                    <!-- Activity 3 -->
+                    <div class="flex flex-row items-center gap-4 bg-[#0D0E2A] rounded-xl px-5 py-4 relative h-28">
 
-                        <div class="flex gap-5">
+                        <span class="absolute top-4 right-5 text-[#B5B5B5] text-xs">
+                            (  )
+                        </span>
 
-                            <div
-                                class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="#10B981" viewBox="0 0 24 24"
-                                    class="w-8 h-8">
-                                    <path d="m9 16.17-3.88-3.88L3 14.41 9 20.41 21 8.41 18.88 6.29z" />
-                                </svg>
-                            </div>
-
-                            <div>
-                                <h3 class="text-3xl font-bold line-through opacity-70 mb-2">
-                                    Scheduled Maintenance: Malued
-                                </h3>
-
-                                <p class="text-gray-300 leading-relaxed">
-                                    Maintenance completed successfully. Grid stability returned to 100%.
-                                </p>
-                            </div>
-
+                        <div class="w-16 lg:w-10 h-16 lg:h-10 rounded-md bg-[#10B981]/20 flex items-center justify-center shrink-0">
+                            <img src="/img/check.svg" class="w-8 h-8 lg:w-5 lg:h-5"></img>
                         </div>
 
-                        <div class="flex flex-col items-end gap-4 min-w-[180px]">
-                            <p class="text-sm text-gray-400 whitespace-nowrap">3 HOURS AGO</p>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-white font-bold text-sm lg:text-base line-through opacity-70">
+                                (  )
+                            </span>
 
-                            <span
-                                class="bg-green-500/20 text-green-400 px-4 py-2 rounded-lg text-sm font-semibold uppercase">
-                                Resolved
+                            <span class="text-[#B5B5B5] text-xs lg:text-sm">
+                                (  )
                             </span>
                         </div>
 

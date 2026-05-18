@@ -335,15 +335,16 @@
     </section>
 
     <!-- Footer -->
-    <footer id="footer" class="flex flex-col bg-[#0B0C22] px-6 md:px-10 py-10 gap-10 border-t-1 border-white/50">
-        <div class="flex flex-col lg:flex-row justify-evenly gap-10 border-b border-white/50 pb-10">
+    <footer id="footer" class="flex flex-col bg-[#0B0C22] px-6 md:px-10 py-10 gap-10 border-t border-white/50">
 
-            <!-- Brand -->
-            <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row justify-center gap-10 border-b border-white/50 pb-10">
+
+        <!-- Brand -->
+        <div class="flex flex-col gap-4 lg:mr-10">
                 <div class="flex">
                     <a href="#" class="flex">
                         <img class="w-10 md:w-16" src="../img/logo.png" alt="">
-                        <div class="flex flex-col justify-center items=start">
+                        <div class="flex flex-col justify-center items-start">
                             <span class="text-white font-bold text-lg md:text-xl leading-tight">
                                 POWER<span class="text-[#FFBB02]">GUIDE</span>
                             </span>
@@ -353,6 +354,7 @@
                         </div>
                     </a>
                 </div>
+
                 <span class="text-white/50 font-medium text-sm md:text-base">
                     The ultimate companion for managing <br>
                     power outages and device longevity. <br>
@@ -360,71 +362,44 @@
                     connected during unexpected <br>
                     blackouts.
                 </span>
+
                 <div class="flex flex-row gap-3">
-                    <!-- fb -->
-                    <span class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] rounded-full flex justify-center items-center">
-                        <a href="https://www.facebook.com/">
-                            <img class="w-6 h-6 md:w-5 md:h-5" src="../img/facebook.jpg" alt="facebook">
-                        </a>
-                    </span>
-                    <!-- x -->
-                    <span class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] rounded-full flex justify-center items-center">
-                        <a href="https://www.twitter.com/">
-                            <img class="w-4 h-4 md:w-5 md:h-5" src="../img/twitter.png" alt="twitter">
-                        </a>
-                    </span>
-                    <!-- git -->
-                    <span class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] rounded-full flex justify-center items-center">
-                        <a href="https://www.github.com/">
-                            <img class="w-4 h-4 md:w-5 md:h-5" src="../img/github.png" alt="github">
-                        </a>
-                    </span>
+                    <a href="https://www.facebook.com/" class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center group">
+                        <img class="w-6 h-6 md:w-5 md:h-5 group-hover:brightness-0" src="../img/facebook.jpg" alt="facebook">
+                    </a>
+
+                    <a href="https://www.twitter.com/" class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center group">
+                        <img class="w-4 h-4 md:w-5 md:h-5 group-hover:brightness-0" src="../img/twitter.png" alt="twitter">
+                    </a>
+
+                    <a href="https://www.github.com/" class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center group">
+                        <img class="w-4 h-4 md:w-5 md:h-5 group-hover:brightness-0" src="../img/github.png" alt="github">
+                    </a>
                 </div>
             </div>
 
             <!-- Product -->
-            <div class="text-white text-lg md:text-2xl">
-                <span class="font-bold">Product</span><br><br>
+            <div>
+                <span class="font-bold text-white text-lg md:text-2xl">Product</span><br><br>
                 <ul class="font-medium text-white/50 text-sm md:text-base flex flex-col gap-3">
-                    <li> <a href="features.html">Features</a></li>
-                    <li><a href="reporting-map.html">Reporting Map</a></li>
-                    <li><a href="battery-tracker.html">Battery Tracker</a></li>
-                    <li><a href="">Release Notes</a></li>
+                    <li><a href="features.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Features</a></li>
+                    <li><a href="reporting-map.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Reporting Map</a></li>
+                    <li><a href="battery-tracker.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Battery Tracker</a></li>
+                    <li><a href="#" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Release Notes</a></li>
                 </ul>
             </div>
 
             <!-- Support -->
-            <div class="text-white text-lg md:text-2xl">
-                <span class="font-bold">Support</span><br><br>
+            <div>
+                <span class="font-bold text-white text-lg md:text-2xl">Support</span><br><br>
                 <ul class="font-medium text-white/50 text-sm md:text-base flex flex-col gap-3">
-                    <li><a href="helpcenter.html">Help Center </a></li>
-                    <li><a href="report-issue.html">Report an issue<a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Services</a></li>
+                    <li><a href="helpcenter.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Help Center</a></li>
+                    <li><a href="report-issue.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Report an issue</a></li>
+                    <li><a href="privacy.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Privacy Policy</a></li>
+                    <li><a href="terms.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Terms of Services</a></li>
                 </ul>
             </div>
 
-            <!-- Stay Alert -->
-            <div class="text-white text-lg md:text-2xl flex flex-col gap-4">
-                <span class="font-bold">Stay Alert!</span>
-                <span class="font-medium text-sm md:text-base text-white/75">
-                    Get notified about scheduled <br>
-                    maintenance in your area.
-                </span>
-
-                <!-- input -->
-                <input
-                        class="bg-[#BCBCBC29] rounded-lg text-sm md:text-base h-8 md:h-10 w-full md:w-80 px-4 py-2"
-                        type="email"
-                        placeholder="Your email address">
-                <!-- button BELOW input, aligned to RIGHT -->
-                <div class="flex justify-end">
-                    <button
-                        class="bg-[#FFBB02] cursor-pointer text-sm text-black font-bold rounded-full h-10 md:h-4 hover:opacity-90 transition hover:bg-[#D99A00] active:bg-[#FFC833]" style="width:100px">
-                        Subscribe
-                    </button>
-                </div>
-            </div>
         </div>
 
         <div>
@@ -432,6 +407,7 @@
                 V6 @ 2026 POWERGUIDE. BUILT FOR THE COMMUNITY.
             </span>
         </div>
+
     </footer>
     <script src="./script.js"></script>
     <script>

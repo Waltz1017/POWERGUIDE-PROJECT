@@ -180,6 +180,20 @@ function closeBatteryWarning() {
     setTimeout(() => { warning.classList.add("pointer-events-none"); }, 300);
 }
 
+document.addEventListener("keydown", function (event) {
+
+    const warning = document.getElementById("battery-warning");
+
+    // Check if Enter key is pressed
+    if (event.key === "Enter") {
+
+        // Check if warning is currently visible
+        if (!warning.classList.contains("invisible")) {
+            closeBatteryWarning();
+        }
+    }
+});
+
 function openPopup() {
     const popup = document.getElementById("popup");
     const box = document.getElementById("popupBox");
