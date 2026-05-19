@@ -39,11 +39,11 @@
         <!-- Nav links (hidden on mobile) -->
         <ul class="hidden md:flex flex-row font-bold gap-6 ml-auto text-gray-400 text-xs md:text-sm">
             <li class="px-5 py-3 hover:text-gray-500 active:text-gray-600 transition-colors">
-                <a href="#features">Features</a>
+                <a href="#about">About</a>
             </li>
 
             <li class="px-5 py-3 mr-5 hover:text-gray-500 active:text-gray-600 transition-colors">
-                <a href="#about">About</a>
+                <a href="#features">Features</a>
             </li>
         </ul>
 
@@ -75,8 +75,8 @@
             bg-black/50 backdrop-blur-2xl text-gray-300
             flex flex-col items-center gap-6 py-6 text-base
             border-b border-white/10 sticky top-16 z-40">
-        <a href="#Features-section">Features</a>
         <a href="#About-section">About</a>
+        <a href="#Features-section">Features</a>
     </div>
 
     <!-- Hero Section -->
@@ -128,10 +128,10 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="Features-section" class="min-h-screen bg-[#03041A] flex flex-col lg:flex-row border-t border-[#03041A]">
+    <!-- About Section -->
+    <section id="About-section" class="min-h-screen bg-[#03041A] flex flex-col lg:flex-row border-t border-[#03041A]">
         <!-- Left: Cards -->
-        <div id="features" class="w-full lg:w-1/2 flex justify-center items-center py-10 lg:py-0" style="scroll-margin-top: 3rem;">
+        <div id="about" class="w-full lg:w-1/2 flex justify-center items-center py-10 lg:py-0" style="scroll-margin-top: 3rem;">
             <div class="flex text-white flex-col sm:flex-row gap-10 px-6 lg:px-10 lg:m-10 w-full">
 
                 <!-- Column 1 -->
@@ -219,10 +219,10 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <hr id="about" class="border-t border-[#03041A]" style="scroll-margin-top: 100px;">
+    <!-- Features Section -->
+    <hr id="features" class="border-t border-[#03041A]" style="scroll-margin-top: 100px;">
 
-    <section id="About-section" class="scroll-mt-[100px] min-h-screen bg-[#03041A] flex flex-col 
+    <section id="Features-section" class="scroll-mt-[100px] min-h-screen bg-[#03041A] flex flex-col 
     justify-center items-center px-4 py-16">
         <div class="text-white text-center">
             <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">
@@ -335,16 +335,15 @@
     </section>
 
     <!-- Footer -->
-    <footer id="footer" class="flex flex-col bg-[#0B0C22] px-6 md:px-10 py-10 gap-10 border-t border-white/50">
+    <footer id="footer" class="flex flex-col bg-[#0B0C22] px-6 md:px-10 py-10 gap-10 border-t-1 border-white/50">
+        <div class="flex flex-col lg:flex-row justify-evenly gap-10 border-b border-white/50 pb-10">
 
-        <div class="flex flex-col lg:flex-row justify-center gap-10 border-b border-white/50 pb-10">
-
-        <!-- Brand -->
-        <div class="flex flex-col gap-4 lg:mr-10">
+            <!-- Brand -->
+            <div class="flex flex-col gap-4">
                 <div class="flex">
                     <a href="#" class="flex">
                         <img class="w-10 md:w-16" src="../img/logo.png" alt="">
-                        <div class="flex flex-col justify-center items-start">
+                        <div class="flex flex-col justify-center items=start">
                             <span class="text-white font-bold text-lg md:text-xl leading-tight">
                                 POWER<span class="text-[#FFBB02]">GUIDE</span>
                             </span>
@@ -364,50 +363,93 @@
                 </span>
 
                 <div class="flex flex-row gap-3">
-                    <a href="https://www.facebook.com/" class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center group">
-                        <img class="w-6 h-6 md:w-5 md:h-5 group-hover:brightness-0" src="../img/facebook.jpg" alt="facebook">
+
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/" class="group w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center relative">
+                        <img class="w-6 h-6 md:w-5 md:h-5 absolute transition-all duration-300 social-icon" src="/img/facebook-black.png" alt="facebook">
                     </a>
 
-                    <a href="https://www.twitter.com/" class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center group">
-                        <img class="w-4 h-4 md:w-5 md:h-5 group-hover:brightness-0" src="../img/twitter.png" alt="twitter">
+                    <!-- Twitter -->
+                    <a href="https://www.twitter.com/" class="group w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center relative">
+                        <img class="w-4 h-4 md:w-5 md:h-5 absolute transition-all duration-300 social-icon" src="/img/twitter-black.png" alt="twitter">
                     </a>
 
-                    <a href="https://www.github.com/" class="w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center group">
-                        <img class="w-4 h-4 md:w-5 md:h-5 group-hover:brightness-0" src="../img/github.png" alt="github">
+                    <!-- Github -->
+                    <a href="https://www.github.com/" class="group w-8 h-8 md:w-10 md:h-10 bg-[#1E1F3B] hover:bg-[#FFBB02] transition-all duration-300 rounded-full flex justify-center items-center relative">
+                        <img class="w-4 h-4 md:w-5 md:h-5 absolute transition-all duration-300 social-icon" src="/img/github-black.png" alt="github">
                     </a>
+
                 </div>
             </div>
 
             <!-- Product -->
-            <div>
-                <span class="font-bold text-white text-lg md:text-2xl">Product</span><br><br>
+            <div class="text-white text-lg md:text-2xl">
+                <span class="font-bold">Product</span><br><br>
+
                 <ul class="font-medium text-white/50 text-sm md:text-base flex flex-col gap-3">
-                    <li><a href="features.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Features</a></li>
-                    <li><a href="reporting-map.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Reporting Map</a></li>
-                    <li><a href="battery-tracker.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Battery Tracker</a></li>
-                    <li><a href="#" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Release Notes</a></li>
+                    <li><a class="transition-colors duration-200 hover:text-white active:text-white visited:text-white"
+                        href="features.html">Features</a></li>
+
+                    <li><a class="transition-colors duration-200 hover:text-white active:text-white visited:text-white"
+                        href="reporting-map.html">Reporting Map</a></li>
+
+                    <li><a class="transition-colors duration-200 hover:text-white active:text-white visited:text-white"
+                        href="battery-tracker.html">Battery Tracker</a></li>
                 </ul>
             </div>
 
             <!-- Support -->
-            <div>
-                <span class="font-bold text-white text-lg md:text-2xl">Support</span><br><br>
+            <div class="text-white text-lg md:text-2xl">
+                <span class="font-bold">Support</span><br><br>
+
                 <ul class="font-medium text-white/50 text-sm md:text-base flex flex-col gap-3">
-                    <li><a href="helpcenter.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Help Center</a></li>
-                    <li><a href="report-issue.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Report an issue</a></li>
-                    <li><a href="privacy.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Privacy Policy</a></li>
-                    <li><a href="terms.html" class="hover:text-white active:text-[#FFBB02] transition-colors duration-200">Terms of Services</a></li>
+                    <li><a class="transition-colors duration-200 hover:text-white active:text-white visited:text-white"
+                        href="helpcenter.html">Help Center</a></li>
+
+                    <li><a class="transition-colors duration-200 hover:text-white active:text-white visited:text-white"
+                        href="report-issue.html">Report an issue</a></li>
+
+                    <li><a class="transition-colors duration-200 hover:text-white active:text-white visited:text-white"
+                        href="privacy.html">Privacy Policy</a></li>
+
+                    <li><a class="transition-colors duration-200 hover:text-white active:text-white visited:text-white"
+                        href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Team Name -->
+            <div class="text-white text-lg md:text-2xl">
+                <span class="font-bold">Our Team</span><br><br>
+
+                <div class="flex items-center gap-3">
+                    <img src="/img/logo.png" alt="Team Logo" class="w-6 h-6 md:w-8 md:h-8">
+
+                    <span class="font-medium text-white/50 text-sm md:text-base ml-4">
+                        Voltes Six
+                    </span>
+                </div>
+            </div>
+
+            <!-- Members -->
+            <div class="text-white text-lg md:text-2xl">
+                <span class="font-bold">The Builders</span><br><br>
+                <ul class="font-medium text-white/50 text-sm md:text-base flex flex-col gap-3">
+                    <li>Luigi Barte</li>
+                    <li>Walter Ballesteros</li>
+                    <li>Don Rudyrick Barberan</li>
+                    <li>Christian Blanco</li>
+                    <li>Noerly Yvonne Mae Idos</li>
+                    <li>Angela Martin</li>
                 </ul>
             </div>
 
         </div>
 
-        <div>
-            <span class="text-white font-medium text-xs md:text-sm">
+        <div class="w-full flex justify-center">
+            <span class="text-white/50 text-xs tracking-widest uppercase text-center">
                 V6 @ 2026 POWERGUIDE. BUILT FOR THE COMMUNITY.
             </span>
         </div>
-
     </footer>
     <script src="./script.js"></script>
     <script>

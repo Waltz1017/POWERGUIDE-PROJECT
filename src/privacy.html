@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll:smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | POWERGUIDE</title>
+    <title>PowerGuide Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="./output.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 
-<body class="bg-black font-['Montserrat'] text-white">
+<body class="bg-[#03041A] text-white font-['Montserrat']">
 
-    <!-- Header (Consistent with Landing) -->
-    <header id="mainHeader" class="flex flex-row sticky top-0 z-50 h-16 md:h-25 text-2xl items-center border-b border-gray-400 justify-between px-4 md:px-0 backdrop-blur-[2px] bg-black/50">
+    <header id="mainHeader" class="flex flex-row sticky top-0 z-50
+                h-16 md:h-[100px] text-2xl items-center
+                justify-between px-4 md:px-0
+                bg-black/50 backdrop-blur-2xl
+                border-b border-white/10 -ml-8">
         <div class="flex pl-8 items-center gap-2">
-            <a href="/src/landing.html#footer" class="flex pl-10 items-center gap-2">
-                <img class="w-10 md:w-16" src="../img/logo.png" alt="PowerGuide Logo">
+            <a href="/src/landing.html" class="flex pl-10 items-center gap-2">
+                <img class="w-10 md:w-16" src="../img/logo.png" alt="">
                 <div class="flex flex-col justify-center items-start">
                     <span class="text-white font-bold text-lg md:text-xl leading-tight">
                         POWER<span class="text-[#FFBB02]">GUIDE</span>
@@ -26,20 +36,33 @@
                 </div>
             </a>
         </div>
-
-        <ul class="hidden md:flex flex-row font-bold gap-6 ml-auto text-gray-400 text-xs md:text-sm mr-10">
-            <li ><a href="/src/landing.html#footer">Back to Home</a></li>
-        </ul>
+        <div class="flex items-center gap-6 md:gap-10 p-2 md:p-4 text-xs md:text-sm font-bold">
+            <a href="landing.html" onclick="fadeOut(event)">
+                <button class="int-btn cursor-pointer px-3 py-1.5 md:px-4 md:py-2
+                    bg-[#FFBB02] text-black rounded-full
+                    hover:bg-[#D99A00] active:bg-[#FFC833]
+                    transform transition-all duration-200 ease-in-out
+                    hover:scale-105 active:scale-95 mr-6">
+                    Back to Home
+                </button>
+            </a>
+            <!-- Hamburger button (mobile only) -->
+            <button id="menuBtn" class="md:hidden text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="py-16 bg-[#03041A] text-center border-b border-white/10">
+    <section class="bg-[#03041A] text-center py-10">
         <h1 class="text-4xl md:text-6xl font-black mb-4">Privacy <span class="text-[#FFBB02]">Policy</span></h1>
         <p class="text-gray-400 text-sm md:text-base">Last Updated: May 6, 2026</p>
     </section>
 
     <!-- Content Section -->
-    <main class="max-w-5xl mx-auto px-6 py-20">
+    <main class="max-w-5xl mx-auto px-6 mb-10">
         <div class="grid grid-cols-1 gap-12">
             
             <!-- Intro Card -->
@@ -94,22 +117,17 @@
         </div>
     </main>
 
-    <!-- Footer (Identical to Landing) -->
-    <footer class="flex flex-col bg-[#0B0C22] px-6 md:px-10 py-10 gap-10 border-t border-white/20">
-        <div class="flex flex-col lg:flex-row justify-evenly gap-10 border-b border-white/20 pb-10">
-            <div class="flex flex-col gap-4">
-                <div class="flex">
-                    <img class="w-10 md:w-16" src="../img/logo.png" alt="">
-                    <div class="flex flex-col justify-center">
-                        <span class="text-white font-bold text-lg md:text-xl leading-tight">POWER<span class="text-[#FFBB02]">GUIDE</span></span>
-                        <span class="text-white/70 font-medium text-[10px] tracking-widest leading-none">SECURITY AND RELIABILITY</span>
-                        <span class="text-white/50 text-sm">V6 @ 2026 POWERGUIDE.</span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+    <footer class="py-10 text-center border-t border-white/10 bg-[#0B0C22]">
+        <span class="text-white/50 text-xs tracking-widest uppercase">
+            V6 @ 2026 POWERGUIDE. BUILT FOR THE COMMUNITY.
+        </span>
     </footer>
 
+    <script src="./script.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
+        });
+    </script>
 </body>
 </html>

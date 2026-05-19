@@ -2099,3 +2099,13 @@ input:focus {  outline: none; border: 1px solid #FFBB02 !important; box-shadow: 
 * { scrollbar-width: thin; scrollbar-color: #888 transparent; }
 
 #login, #signup { overflow: hidden !important; }
+
+.social-icon {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+/* On hover, remove the filter to show original black/dark icons against yellow background */
+.group:hover .social-icon {
+    filter: none;
+}
